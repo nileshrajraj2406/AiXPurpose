@@ -27,24 +27,24 @@ AiXPurpose currently presents donor and finance data largely received from conne
 
 ## 2. Functional scope summary
 
-| Status | Included | Explicit exclusions |
-|---|---|---|
-| As-Is | Existing Donations, Pledges, Receipt Management and Reconciliation pages; search, details, history and status UI; individual receipt PDF/email confirmed working; existing pledge interactions reported working for integration-based views | Native Add/Edit functionality **not** confirmed working merely because buttons exist |
-| Existing Jira development baseline | Independent configurable four-card KPI behavior for Donations and Pledges per the supplied approved specification | Not represented as QA-verified production |
-| To-Be | Native Add Donation via payment gateway; eligible native edits; native pledge and installment mapping; receipt identity/format; batch PDFs and batch emails; bank statement import and transaction **review only**; per-page Source dropdown; tenant/source enforcement | No current manual or automatic bank matching; no refunds implementation |
-| Future Scope | DF-F01 auto matching; DF-F02 advanced matching/exceptions; DF-F03 source-aware refunds (candidate, not previously selected); DF-F04 receipt customization; DF-F05 pledge reminders; DF-F06 financial export; DF-F07 multi-donor pledges (candidate pending rules) | No automatic commitment to implement future scope |
+| Status                             | Included                                                                                                                                                                                                                                                                | Explicit exclusions                                                                  |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| As-Is                              | Existing Donations, Pledges, Receipt Management and Reconciliation pages; search, details, history and status UI; individual receipt PDF/email confirmed working; existing pledge interactions reported working for integration-based views                             | Native Add/Edit functionality **not** confirmed working merely because buttons exist |
+| Existing Jira development baseline | Independent configurable four-card KPI behavior for Donations and Pledges per the supplied approved specification                                                                                                                                                       | Not represented as QA-verified production                                            |
+| To-Be                              | Native Add Donation via payment gateway; eligible native edits; native pledge and installment mapping; receipt identity/format; batch PDFs and batch emails; bank statement import and transaction **review only**; per-page Source dropdown; tenant/source enforcement | No current manual or automatic bank matching; no refunds implementation              |
+| Future Scope                       | DF-F01 auto matching; DF-F02 advanced matching/exceptions; DF-F03 source-aware refunds (candidate, not previously selected); DF-F04 receipt customization; DF-F05 pledge reminders; DF-F06 financial export; DF-F07 multi-donor pledges (candidate pending rules)       | No automatic commitment to implement future scope                                    |
 
 ## 3. Key business requirements
 
-| Goal | Business requirement | Related features |
-|---|---|---|
-| G-01 | Preserve working interfaces, existing donor/member mapping and approved KPI catalog. | DF-001–008, DF-021 |
-| G-02 | Native Add Donation initiates actual payment and records one donation only after verified gateway success. | DF-009–010 |
-| G-03 | Native pledge creation and installment updates appear consistently in current UI without rewriting imported records. | DF-011 |
-| G-04 | Generate numbered native receipts; enable existing batch controls for PDF and email. | DF-012–014 |
-| G-05 | Import statement, show bank line counts/details and source-filtered donation/pledge transaction details; no matching in current To-Be. | DF-015–017 |
-| G-06 | All Sources (default), AiXPurpose, External Sources (All), individual applicable source, with tenant isolation and strict external read-only. | DF-018–020 |
-| G-07 | Follow already-approved Jira KPI specification; verify data availability and implementation separately. | DF-001, DF-007, DF-021 |
+| Goal | Business requirement                                                                                                                          | Related features       |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| G-01 | Preserve working interfaces, existing donor/member mapping and approved KPI catalog.                                                          | DF-001–008, DF-021     |
+| G-02 | Native Add Donation initiates actual payment and records one donation only after verified gateway success.                                    | DF-009–010             |
+| G-03 | Native pledge creation and installment updates appear consistently in current UI without rewriting imported records.                          | DF-011                 |
+| G-04 | Generate numbered native receipts; enable existing batch controls for PDF and email.                                                          | DF-012–014             |
+| G-05 | Import statement, show bank line counts/details and source-filtered donation/pledge transaction details; no matching in current To-Be.        | DF-015–017             |
+| G-06 | All Sources (default), AiXPurpose, External Sources (All), individual applicable source, with tenant isolation and strict external read-only. | DF-018–020             |
+| G-07 | Follow already-approved Jira KPI specification; verify data availability and implementation separately.                                       | DF-001, DF-007, DF-021 |
 
 ## 4. Existing approved KPI reference
 
@@ -61,48 +61,46 @@ The authoritative **AiXPurpose_Donations_Pledges_Configurable_KPI.docx** states:
 
 ## 6. Risks and dependencies
 
-| Risk/dependency | Handling |
-|---|---|
-| Integrated sources vary in transaction depth | Show only available fields; do not present iWave research as payment records |
-| Payment gateway is not selected | Record provider and notification mechanism as open dependency |
-| Imported receipt numbers may be missing | Preserve source values; generate native receipt numbers only for native receipts |
-| Bank matching UI is visible but workflow is deferred | Do not fabricate matched/unmatched KPI outcomes |
-| Native pledge paid installments may overlap donation ledgers | Define transaction linkage and reconcile approved KPI calculations |
-| Batch operations may partially fail | Return per-item results and avoid duplicates |
+| Risk/dependency                                              | Handling                                                                         |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| Integrated sources vary in transaction depth                 | Show only available fields; do not present iWave research as payment records     |
+| Payment gateway is not selected                              | Record provider and notification mechanism as open dependency                    |
+| Imported receipt numbers may be missing                      | Preserve source values; generate native receipt numbers only for native receipts |
+| Bank matching UI is visible but workflow is deferred         | Do not fabricate matched/unmatched KPI outcomes                                  |
+| Native pledge paid installments may overlap donation ledgers | Define transaction linkage and reconcile approved KPI calculations               |
+| Batch operations may partially fail                          | Return per-item results and avoid duplicates                                     |
 
 ## 7. Open decisions register
 
-| ID | Decision required | Owner |
-|---|---|---|
-| OD-01 | Payment gateway provider, confirmation/webhook, settlement and failure semantics | Development / Finance |
-| OD-02 | Native receipt number pattern, uniqueness boundary, legal/organisation fields | Product / Finance / Development |
-| OD-03 | Bank import file format, field mapping, statement-level duplicate detection | Development |
-| OD-04 | Exact eligible transaction sources including whether each connector supplies transaction-level donation/pledge data | Development / Data mapping |
-| OD-05 | Batch send limits, duplicate-send treatment and recipient error recovery | Development / Product |
-| OD-06 | Native pledge and installment schema, payment linkage and no double counting | Development / Finance |
-| OD-07 | Refund provider and source-system workflow | Future discussion |
-| OD-08 | Multi-donor pledge ownership/allocation/payment responsibility | Future discussion |
-| OD-09 | Existing reconciliation matching KPI meaning and whether unsupported cards should be hidden/qualified | Product / Development |
-| OD-10 | Existing disabled Create/Edit actions and QA checklist for each Donations & Finance screen | QA / Development |
+| ID    | Decision required                                                                                                   | Owner                           |
+| ----- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| OD-01 | Payment gateway provider, confirmation/webhook, settlement and failure semantics                                    | Development / Finance           |
+| OD-02 | Native receipt number pattern, uniqueness boundary, legal/organisation fields                                       | Product / Finance / Development |
+| OD-03 | Bank import file format, field mapping, statement-level duplicate detection                                         | Development                     |
+| OD-04 | Exact eligible transaction sources including whether each connector supplies transaction-level donation/pledge data | Development / Data mapping      |
+| OD-05 | Batch send limits, duplicate-send treatment and recipient error recovery                                            | Development / Product           |
+| OD-06 | Native pledge and installment schema, payment linkage and no double counting                                        | Development / Finance           |
+| OD-07 | Refund provider and source-system workflow                                                                          | Future discussion               |
+| OD-08 | Multi-donor pledge ownership/allocation/payment responsibility                                                      | Future discussion               |
+| OD-09 | Existing reconciliation matching KPI meaning and whether unsupported cards should be hidden/qualified               | Product / Development           |
+| OD-10 | Existing disabled Create/Edit actions and QA checklist for each Donations & Finance screen                          | QA / Development                |
 
 ## Screenshot references — original application captures
 
 The following images are extracted without editing from **donation and finance module.docx**, in document image order. Screenshots establish interface presence, not server-side functionality.
 
-| Figure | Source screenshot |
-|---|---|
-| 1 | ![Original Donations and Finance screenshot 1](screenshots/donation_finance_01.png) |
-| 2 | ![Original Donations and Finance screenshot 2](screenshots/donation_finance_02.png) |
-| 3 | ![Original Donations and Finance screenshot 3](screenshots/donation_finance_03.png) |
-| 4 | ![Original Donations and Finance screenshot 4](screenshots/donation_finance_04.png) |
-| 5 | ![Original Donations and Finance screenshot 5](screenshots/donation_finance_05.png) |
-| 6 | ![Original Donations and Finance screenshot 6](screenshots/donation_finance_06.png) |
-| 7 | ![Original Donations and Finance screenshot 7](screenshots/donation_finance_07.png) |
-| 8 | ![Original Donations and Finance screenshot 8](screenshots/donation_finance_08.png) |
-| 9 | ![Original Donations and Finance screenshot 9](screenshots/donation_finance_09.png) |
-| 10 | ![Original Donations and Finance screenshot 10](screenshots/donation_finance_10.png) |
-
-
+| Figure | Source screenshot                                                                    |
+| ------ | ------------------------------------------------------------------------------------ |
+| 1      | ![Original Donations and Finance screenshot 1](screenshots/donation_finance_01.png)  |
+| 2      | ![Original Donations and Finance screenshot 2](screenshots/donation_finance_02.png)  |
+| 3      | ![Original Donations and Finance screenshot 3](screenshots/donation_finance_03.png)  |
+| 4      | ![Original Donations and Finance screenshot 4](screenshots/donation_finance_04.png)  |
+| 5      | ![Original Donations and Finance screenshot 5](screenshots/donation_finance_05.png)  |
+| 6      | ![Original Donations and Finance screenshot 6](screenshots/donation_finance_06.png)  |
+| 7      | ![Original Donations and Finance screenshot 7](screenshots/donation_finance_07.png)  |
+| 8      | ![Original Donations and Finance screenshot 8](screenshots/donation_finance_08.png)  |
+| 9      | ![Original Donations and Finance screenshot 9](screenshots/donation_finance_09.png)  |
+| 10     | ![Original Donations and Finance screenshot 10](screenshots/donation_finance_10.png) |
 
 ## UPDATED v1.1 — Donations and Pledges native template imports
 

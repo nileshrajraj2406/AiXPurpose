@@ -21,17 +21,17 @@ Operational and conceptual Mermaid flows. All workflows reflect Admin-only acces
 
 ## 1. Workflow inventory
 
-| Workflow | Scope | Feature IDs |
-|---|---|---|
-| WF-01 Existing Donations list and details | As-Is UI | DF-001, DF-002, DF-003, DF-004, DF-021 |
-| WF-02 Existing Pledges list/detail/instalments | As-Is UI | DF-005, DF-006, DF-007 |
-| WF-03 Existing individual receipt actions | As-Is confirmed | DF-008 |
-| WF-04 Native gateway-backed donation collection | To-Be | DF-009, DF-010 |
-| WF-05 Native pledge and installment mapping | To-Be | DF-011 |
-| WF-06 Native receipt issuance and batch processing | To-Be | DF-012, DF-013, DF-014 |
-| WF-07 Bank import and read-only source-based review | To-Be | DF-015, DF-016, DF-017 |
-| WF-08 Record origin, source filtering, tenant protection | To-Be shared | DF-018, DF-019, DF-020 |
-| WF-09–15 Future concepts | Future | DF-022–028 |
+| Workflow                                                 | Scope           | Feature IDs                            |
+| -------------------------------------------------------- | --------------- | -------------------------------------- |
+| WF-01 Existing Donations list and details                | As-Is UI        | DF-001, DF-002, DF-003, DF-004, DF-021 |
+| WF-02 Existing Pledges list/detail/instalments           | As-Is UI        | DF-005, DF-006, DF-007                 |
+| WF-03 Existing individual receipt actions                | As-Is confirmed | DF-008                                 |
+| WF-04 Native gateway-backed donation collection          | To-Be           | DF-009, DF-010                         |
+| WF-05 Native pledge and installment mapping              | To-Be           | DF-011                                 |
+| WF-06 Native receipt issuance and batch processing       | To-Be           | DF-012, DF-013, DF-014                 |
+| WF-07 Bank import and read-only source-based review      | To-Be           | DF-015, DF-016, DF-017                 |
+| WF-08 Record origin, source filtering, tenant protection | To-Be shared    | DF-018, DF-019, DF-020                 |
+| WF-09–15 Future concepts                                 | Future          | DF-022–028                             |
 
 ## WF-01 — Donations list/detail and existing disabled controls
 
@@ -297,20 +297,18 @@ Each Workflow row links to its precise Feature ID; the Goals BRD maps those IDs 
 
 The following images are extracted without editing from **donation and finance module.docx**, in document image order. Screenshots establish interface presence, not server-side functionality.
 
-| Figure | Source screenshot |
-|---|---|
-| 1 | ![Original Donations and Finance screenshot 1](screenshots/donation_finance_01.png) |
-| 2 | ![Original Donations and Finance screenshot 2](screenshots/donation_finance_02.png) |
-| 3 | ![Original Donations and Finance screenshot 3](screenshots/donation_finance_03.png) |
-| 4 | ![Original Donations and Finance screenshot 4](screenshots/donation_finance_04.png) |
-| 5 | ![Original Donations and Finance screenshot 5](screenshots/donation_finance_05.png) |
-| 6 | ![Original Donations and Finance screenshot 6](screenshots/donation_finance_06.png) |
-| 7 | ![Original Donations and Finance screenshot 7](screenshots/donation_finance_07.png) |
-| 8 | ![Original Donations and Finance screenshot 8](screenshots/donation_finance_08.png) |
-| 9 | ![Original Donations and Finance screenshot 9](screenshots/donation_finance_09.png) |
-| 10 | ![Original Donations and Finance screenshot 10](screenshots/donation_finance_10.png) |
-
-
+| Figure | Source screenshot                                                                    |
+| ------ | ------------------------------------------------------------------------------------ |
+| 1      | ![Original Donations and Finance screenshot 1](screenshots/donation_finance_01.png)  |
+| 2      | ![Original Donations and Finance screenshot 2](screenshots/donation_finance_02.png)  |
+| 3      | ![Original Donations and Finance screenshot 3](screenshots/donation_finance_03.png)  |
+| 4      | ![Original Donations and Finance screenshot 4](screenshots/donation_finance_04.png)  |
+| 5      | ![Original Donations and Finance screenshot 5](screenshots/donation_finance_05.png)  |
+| 6      | ![Original Donations and Finance screenshot 6](screenshots/donation_finance_06.png)  |
+| 7      | ![Original Donations and Finance screenshot 7](screenshots/donation_finance_07.png)  |
+| 8      | ![Original Donations and Finance screenshot 8](screenshots/donation_finance_08.png)  |
+| 9      | ![Original Donations and Finance screenshot 9](screenshots/donation_finance_09.png)  |
+| 10     | ![Original Donations and Finance screenshot 10](screenshots/donation_finance_10.png) |
 
 ## UPDATED v1.1 — Donation and Pledge import, match and update
 

@@ -18,7 +18,7 @@ These are **business-level** process flows, not claims about presently implement
 - **Member/donor relationship:** donor maps to member; no separate iWave-only profile. A member may never have donated.
 - **Segment definitions:** editable native segment configuration can reference read-only integrated members without modifying source records.
 - **Tenant isolation:** records, segment definitions, exports, suggestions, and communications must be scoped to the active client.
-- **Existing Jira changes:** KPI catalogs, advanced columns, unified profile and Global Search are included in As-Is baseline *by project convention*, but their delivery and QA status must be verified; avoid creating duplicate Jira stories.
+- **Existing Jira changes:** KPI catalogs, advanced columns, unified profile and Global Search are included in As-Is baseline _by project convention_, but their delivery and QA status must be verified; avoid creating duplicate Jira stories.
 - **Prospecting:** existing source-supplied scores/display retained; native donor scoring model is **Future Scope** and not assumed to exist.
 
 ## End-to-end workflow map
@@ -491,7 +491,6 @@ flowchart TD
 
 **Acceptance checkpoint:** No current-release scoring implementation; future business approval required.
 
-
 ## To-Be import workflows — consolidated original Member/Donor requirements
 
 Native file upload is distinct from external integration sync. The imported records or segment memberships belong to AiXPurpose; integrated source records remain read-only. See matching detailed feature stories in the Feature Catalogue.
@@ -599,18 +598,16 @@ flowchart TD
 - Dynamic segment manual overrides after recalculation remain an OPEN Development decision; do not specify persistence or rule-only removal.
 - Following import, refresh native lists and only eligible KPIs based on the approved definitions; never fabricate a donation payment or write back to external integrations.
 
-
-| ID | Open decision / verification | Treatment |
-|---|---|---|
-| DM-OD-01 | Dynamic segment refresh and update schedule | Verify with Development; retain observed behavior |
-| DM-OD-02 | Static segment actual membership semantics | QA verification, no presumed algorithm |
-| DM-OD-03 | Manual additions/exclusions versus dynamic recomputation precedence | Explicitly OPEN; not assumed persistent or overwritten |
-| DM-OD-04 | Prospect list eligibility, source linkage and category thresholds | Development verification; no scoring changes now |
-| DM-OD-05 | iWave propensity/affinity/capacity source fields, quality and freshness | Source-backed only; new scoring deferred |
-| DM-OD-06 | Existing Jira deployment and QA status for KPI, columns, profile and Global Search | Track against current tickets |
-| DM-OD-07 | Native Donor creation qualification and de-duplication | Development confirmation; must link to Member |
-| DM-OD-08 | Supported segment AND/OR fields, operator matrix and possible nested groups | Confirm feasible initial builder; do not assume nested groups |
-
+| ID       | Open decision / verification                                                       | Treatment                                                     |
+| -------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| DM-OD-01 | Dynamic segment refresh and update schedule                                        | Verify with Development; retain observed behavior             |
+| DM-OD-02 | Static segment actual membership semantics                                         | QA verification, no presumed algorithm                        |
+| DM-OD-03 | Manual additions/exclusions versus dynamic recomputation precedence                | Explicitly OPEN; not assumed persistent or overwritten        |
+| DM-OD-04 | Prospect list eligibility, source linkage and category thresholds                  | Development verification; no scoring changes now              |
+| DM-OD-05 | iWave propensity/affinity/capacity source fields, quality and freshness            | Source-backed only; new scoring deferred                      |
+| DM-OD-06 | Existing Jira deployment and QA status for KPI, columns, profile and Global Search | Track against current tickets                                 |
+| DM-OD-07 | Native Donor creation qualification and de-duplication                             | Development confirmation; must link to Member                 |
+| DM-OD-08 | Supported segment AND/OR fields, operator matrix and possible nested groups        | Confirm feasible initial builder; do not assume nested groups |
 
 ## Original screenshots
 
@@ -621,7 +618,6 @@ flowchart TD
 ![Original Donor Management screen 05](screenshots/donor_management_05.png)
 ![Original Donor Management screen 06](screenshots/donor_management_06.png)
 ![Original Donor Management screen 07](screenshots/donor_management_07.png)
-
 
 ## UPDATED v1.6 — Match/update template import workflow
 

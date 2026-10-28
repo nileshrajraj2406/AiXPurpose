@@ -14,44 +14,44 @@
 - **Future candidate:** discussion only, not approved for implementation.
 - **Open decision:** formula, technical handoff, provider or feature behavior not decided; do not invent details.
 - **Source ownership:** all externally synchronized business records are read-only to Admin users within AiXPurpose; externally initiated API synchronisation may refresh them. Native AiXPurpose records are editable by Admins. There is currently no differentiated native role-permission model.
-- **Source filter:** a per-page dropdown within the existing Filters area, not a global Settings switch. Its choices are All Sources (default), AiXPurpose, External Sources (All), plus applicable tenant-connected source applications. It changes *listing visibility*, not record origins, stored data or reporting formulas.
+- **Source filter:** a per-page dropdown within the existing Filters area, not a global Settings switch. Its choices are All Sources (default), AiXPurpose, External Sources (All), plus applicable tenant-connected source applications. It changes _listing visibility_, not record origins, stored data or reporting formulas.
 
 ## 1. Feature inventory and Jira import guidance
 
 Every feature below is self-contained and may be copied to Jira as a user story. A business requirement marked QA verification must not be assumed already implemented. IDs CC-001–CC-030 are specification identifiers; map to your actual Jira keys when creating tickets.
 
-| Feature ID | Module | Feature | Scope |
-| --- | --- | --- | --- |
-| CC-001 | Campaigns | Campaign list and four KPI cards | As-Is |
-| CC-002 | Campaigns | Campaign search, filters and statuses | As-Is |
-| CC-003 | Campaigns | Four-step native campaign creation | As-Is |
-| CC-004 | Campaigns | AI Campaign Generator control and fallback | Existing UI gap / decision pending |
-| CC-005 | Campaigns | Campaign detail tabs | As-Is |
-| CC-006 | Campaigns | Campaign editing and source protection | As-Is business rule / To-Be enforcement |
-| CC-007 | Campaigns | Campaign donations and donor linkage | Standalone baseline enhancement – QA verification |
-| CC-008 | Campaigns | Campaign audience communication | Standalone baseline enhancement – QA verification |
-| CC-009 | Campaigns | Campaign performance and calculation integrity | As-Is UI / open calculation decision |
-| CC-010 | Communications | Communication KPIs and list | As-Is |
-| CC-011 | Communications | Communication list search and filtering | As-Is |
-| CC-012 | Communications | Four-step communication creation | As-Is |
-| CC-013 | Communications | Email Send Now | As-Is confirmed functional |
-| CC-014 | Communications | Email schedule and schedule management | As-Is confirmed functional |
-| CC-015 | Communications | Communication details overview and delivery KPIs | As-Is / QA verification |
-| CC-016 | Communications | Recipient audience status list and export | As-Is / QA verification |
-| CC-017 | Communications | Message preview and code view | As-Is |
-| CC-018 | Communications | Communication content editing lifecycle | As-Is rule / QA verification |
-| CC-019 | Communications | SMS operational delivery | To-Be |
-| CC-020 | Communications | WhatsApp operational delivery | To-Be |
-| CC-021 | Communications | Audience resolution and tenant consistency | To-Be shared rule |
-| CC-022 | Templates | Template list, search and type filters | As-Is |
-| CC-023 | Templates | Native template creation and editing | As-Is |
-| CC-024 | Templates | Variables and Use in Communication | As-Is / QA verification |
-| CC-025 | Templates | Document upload to editable email template | To-Be approved |
-| CC-026 | Automations & Drips | Automation listing and builder | As-Is UI |
-| CC-027 | Automations & Drips | Basic automation execution | To-Be approved |
-| CC-028 | Shared | Source dropdown and origin-aware record listing | To-Be approved shared enhancement |
-| CC-029 | Shared | Tenant isolation and source ownership | To-Be standalone rule / verification |
-| CC-030 | Shared | Export behavior consistency | Standalone baseline enhancement – QA verification |
+| Feature ID | Module              | Feature                                          | Scope                                             |
+| ---------- | ------------------- | ------------------------------------------------ | ------------------------------------------------- |
+| CC-001     | Campaigns           | Campaign list and four KPI cards                 | As-Is                                             |
+| CC-002     | Campaigns           | Campaign search, filters and statuses            | As-Is                                             |
+| CC-003     | Campaigns           | Four-step native campaign creation               | As-Is                                             |
+| CC-004     | Campaigns           | AI Campaign Generator control and fallback       | Existing UI gap / decision pending                |
+| CC-005     | Campaigns           | Campaign detail tabs                             | As-Is                                             |
+| CC-006     | Campaigns           | Campaign editing and source protection           | As-Is business rule / To-Be enforcement           |
+| CC-007     | Campaigns           | Campaign donations and donor linkage             | Standalone baseline enhancement – QA verification |
+| CC-008     | Campaigns           | Campaign audience communication                  | Standalone baseline enhancement – QA verification |
+| CC-009     | Campaigns           | Campaign performance and calculation integrity   | As-Is UI / open calculation decision              |
+| CC-010     | Communications      | Communication KPIs and list                      | As-Is                                             |
+| CC-011     | Communications      | Communication list search and filtering          | As-Is                                             |
+| CC-012     | Communications      | Four-step communication creation                 | As-Is                                             |
+| CC-013     | Communications      | Email Send Now                                   | As-Is confirmed functional                        |
+| CC-014     | Communications      | Email schedule and schedule management           | As-Is confirmed functional                        |
+| CC-015     | Communications      | Communication details overview and delivery KPIs | As-Is / QA verification                           |
+| CC-016     | Communications      | Recipient audience status list and export        | As-Is / QA verification                           |
+| CC-017     | Communications      | Message preview and code view                    | As-Is                                             |
+| CC-018     | Communications      | Communication content editing lifecycle          | As-Is rule / QA verification                      |
+| CC-019     | Communications      | SMS operational delivery                         | To-Be                                             |
+| CC-020     | Communications      | WhatsApp operational delivery                    | To-Be                                             |
+| CC-021     | Communications      | Audience resolution and tenant consistency       | To-Be shared rule                                 |
+| CC-022     | Templates           | Template list, search and type filters           | As-Is                                             |
+| CC-023     | Templates           | Native template creation and editing             | As-Is                                             |
+| CC-024     | Templates           | Variables and Use in Communication               | As-Is / QA verification                           |
+| CC-025     | Templates           | Document upload to editable email template       | To-Be approved                                    |
+| CC-026     | Automations & Drips | Automation listing and builder                   | As-Is UI                                          |
+| CC-027     | Automations & Drips | Basic automation execution                       | To-Be approved                                    |
+| CC-028     | Shared              | Source dropdown and origin-aware record listing  | To-Be approved shared enhancement                 |
+| CC-029     | Shared              | Tenant isolation and source ownership            | To-Be standalone rule / verification              |
+| CC-030     | Shared              | Export behavior consistency                      | Standalone baseline enhancement – QA verification |
 
 ## CC-001 — Campaign list and four KPI cards
 
@@ -95,7 +95,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-001 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -141,7 +140,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-002 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -192,7 +190,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-003 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-004 — AI Campaign Generator control and fallback
@@ -237,7 +234,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-004 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -286,7 +282,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-005 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-006 — Campaign editing and source protection
@@ -334,7 +329,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-006 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-007 — Campaign donations and donor linkage
@@ -379,7 +373,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-007 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -430,7 +423,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-008 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-009 — Campaign performance and calculation integrity
@@ -478,7 +470,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-009 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-010 — Communication KPIs and list
@@ -524,7 +515,6 @@ flowchart TD
     S3 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-010 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-011 — Communication list search and filtering
@@ -569,7 +559,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-011 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -618,7 +607,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-012 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-013 — Email Send Now
@@ -665,7 +653,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-013 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -716,7 +703,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-014 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-015 — Communication details overview and delivery KPIs
@@ -761,7 +747,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-015 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -810,7 +795,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-016 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-017 — Message preview and code view
@@ -855,7 +839,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-017 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -904,7 +887,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-018 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-019 — SMS operational delivery
@@ -951,7 +933,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-019 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -1000,7 +981,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-020 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-021 — Audience resolution and tenant consistency
@@ -1048,7 +1028,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-021 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-022 — Template list, search and type filters
@@ -1093,7 +1072,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-022 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -1142,7 +1120,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-023 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-024 — Variables and Use in Communication
@@ -1189,7 +1166,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-024 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -1240,7 +1216,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-025 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-026 — Automation listing and builder
@@ -1287,7 +1262,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-026 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -1338,7 +1312,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-027 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-028 — Source dropdown and origin-aware record listing
@@ -1388,7 +1361,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-028 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## CC-029 — Tenant isolation and source ownership
@@ -1435,7 +1407,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **Related workflow:** See [CC-029 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
@@ -1484,33 +1455,31 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **Related workflow:** See [CC-030 in Workflow](Campaigns_Communications_BRD_Workflow.md).
 
 ## 2. Candidate future features — intentionally not Jira-approved
 
-| ID | Candidate | Description |
-| --- | --- | --- |
-| CC-F01 | Advanced audience targeting | Optional audience-rule expansion beyond current campaign/segment selection. |
-| CC-F03 | Advanced automation triggers | Additional event triggers beyond the verified existing set. |
+| ID     | Candidate                     | Description                                                                          |
+| ------ | ----------------------------- | ------------------------------------------------------------------------------------ |
+| CC-F01 | Advanced audience targeting   | Optional audience-rule expansion beyond current campaign/segment selection.          |
+| CC-F03 | Advanced automation triggers  | Additional event triggers beyond the verified existing set.                          |
 | CC-F07 | AI-assisted template creation | AI-assisted template authoring or conversion beyond approved non-AI document upload. |
 
 No implementation ticket should be created for these candidates until Product/BA approval. CC-F04 and CC-F05 were explicitly removed; enhanced scheduling management is already As-Is.
 
 ## 3. Pending decisions and QA checklist
 
-| ID | Area | Open item |
-| --- | --- | --- |
-| OD-01 | AI Campaign Generator disposition | Existing UI is nonfunctional. Decide repair as To-Be, hide action, or defer; not silently approved. |
-| OD-02 | Campaign performance formulas | Audience, conversion, goal progress, donation attribution and source of goals need Product/Development approval. |
-| OD-03 | Template document upload | Confirm permitted document formats, limits, attachments/assets treatment, sanitisation and conversion engine. |
-| OD-04 | Automation execution rules | Confirm triggers, wait timing, error/retry/idempotency and schedule semantics. |
-| OD-05 | SMS and WhatsApp integrations | Confirm enabled providers, supported message/template requirements, recipient consent and delivery events. |
-| OD-06 | Template variables and communications analytics | QA validate variable mappings, audience statuses, opens, clicks and exports. |
-| OD-07 | Existing standalone change requests | Confirm release/QA status of campaign-specific donor/audience, global export and navigation enhancements. |
-| OD-08 | Source dropdown eligible pages | Confirm supported record lists and handling of composite unified constituent profiles; native origin must not unlock integrated fields. |
-| OD-09 | Future selection | CC-F01, CC-F03 and CC-F07 remain unapproved candidates pending explicit user selection. |
-
+| ID    | Area                                            | Open item                                                                                                                               |
+| ----- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| OD-01 | AI Campaign Generator disposition               | Existing UI is nonfunctional. Decide repair as To-Be, hide action, or defer; not silently approved.                                     |
+| OD-02 | Campaign performance formulas                   | Audience, conversion, goal progress, donation attribution and source of goals need Product/Development approval.                        |
+| OD-03 | Template document upload                        | Confirm permitted document formats, limits, attachments/assets treatment, sanitisation and conversion engine.                           |
+| OD-04 | Automation execution rules                      | Confirm triggers, wait timing, error/retry/idempotency and schedule semantics.                                                          |
+| OD-05 | SMS and WhatsApp integrations                   | Confirm enabled providers, supported message/template requirements, recipient consent and delivery events.                              |
+| OD-06 | Template variables and communications analytics | QA validate variable mappings, audience statuses, opens, clicks and exports.                                                            |
+| OD-07 | Existing standalone change requests             | Confirm release/QA status of campaign-specific donor/audience, global export and navigation enhancements.                               |
+| OD-08 | Source dropdown eligible pages                  | Confirm supported record lists and handling of composite unified constituent profiles; native origin must not unlock integrated fields. |
+| OD-09 | Future selection                                | CC-F01, CC-F03 and CC-F07 remain unapproved candidates pending explicit user selection.                                                 |
 
 ## Source materials and screenshots
 
@@ -1521,18 +1490,15 @@ No implementation ticket should be created for these candidates until Product/BA
 
 Screenshots document reference UI, not validated runtime behavior.
 
-
-
 ## UPDATED v1.1 — Additional Jira feature inventory
 
-| Feature ID | Module | Feature | Scope |
-|---|---|---|---|
-| CC-031 | Campaigns | Bulk Campaign template import, native matching and upsert | To-Be |
-| CC-032 | Communication Templates | Bulk template import for Email/SMS/WhatsApp records | To-Be |
-| CC-033 | Shared | Import preview, native-only match/update, error handling and refresh | To-Be |
+| Feature ID | Module                  | Feature                                                              | Scope |
+| ---------- | ----------------------- | -------------------------------------------------------------------- | ----- |
+| CC-031     | Campaigns               | Bulk Campaign template import, native matching and upsert            | To-Be |
+| CC-032     | Communication Templates | Bulk template import for Email/SMS/WhatsApp records                  | To-Be |
+| CC-033     | Shared                  | Import preview, native-only match/update, error handling and refresh | To-Be |
 
 **Difference from CC-025:** CC-025 converts an uploaded document into a single editable email template; CC-032 is structured, multi-row bulk import. New Template (CC-023) is the individual creation action already shown in source screenshots; the bulk Import button is proposed, not verified As-Is.
-
 
 ## CC-031 — Bulk Campaign template import, native match and update
 
@@ -1540,7 +1506,7 @@ Screenshots document reference UI, not validated runtime behavior.
 **Scope:** To-Be approved — UPDATED v1.1  
 **Actor:** AiXPurpose Admin only  
 **Priority:** High  
-**Linked workflow:** WF-31  
+**Linked workflow:** WF-31
 
 ### User story
 
@@ -1587,14 +1553,13 @@ flowchart TD
  G --> J
 ```
 
-
 ## CC-032 — Bulk Email SMS and WhatsApp template import
 
 **Module:** Communication Templates  
 **Scope:** To-Be approved — UPDATED v1.1  
 **Actor:** AiXPurpose Admin only  
 **Priority:** High  
-**Linked workflow:** WF-32  
+**Linked workflow:** WF-32
 
 ### User story
 
@@ -1641,14 +1606,13 @@ flowchart TD
  G --> J
 ```
 
-
 ## CC-033 — Shared import preview, conflict reporting and refresh
 
 **Module:** Campaigns and Communication Templates  
 **Scope:** To-Be approved — UPDATED v1.1  
 **Actor:** AiXPurpose Admin only  
 **Priority:** High  
-**Linked workflow:** WF-33  
+**Linked workflow:** WF-33
 
 ### User story
 

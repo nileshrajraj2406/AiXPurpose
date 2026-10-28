@@ -4,14 +4,14 @@
 
 ## Document Control
 
-| Field | Value |
-|---|---|
-| Product | AiXPurpose Standalone, multi-tenant |
-| Capability | Utilities: Quick Entry, Import/Export, Duplicate Management, Code Management, Template Manager, API Integration & Data Sync |
-| Document | BRD Feature Catalogue |
-| Version | 1.0 |
-| Sources | `utlities module.docx` screenshots and narration; approved Q1–Q8, D1–D3 and incremental-sync decisions |
-| Reference conventions | Members/Donors BRDs; Profile/Settings Jira-ready specification format |
+| Field                 | Value                                                                                                                       |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Product               | AiXPurpose Standalone, multi-tenant                                                                                         |
+| Capability            | Utilities: Quick Entry, Import/Export, Duplicate Management, Code Management, Template Manager, API Integration & Data Sync |
+| Document              | BRD Feature Catalogue                                                                                                       |
+| Version               | 1.0                                                                                                                         |
+| Sources               | `utlities module.docx` screenshots and narration; approved Q1–Q8, D1–D3 and incremental-sync decisions                      |
+| Reference conventions | Members/Donors BRDs; Profile/Settings Jira-ready specification format                                                       |
 
 **Evidence boundary:** A screen confirms a visible control, not functioning backend logic. No unapproved field mapping, connector contract, reconciliation algorithm or provider behaviour is assumed.
 
@@ -30,23 +30,23 @@
 
 This document is structured as individually copyable Jira user stories, each with feature ID, linked goal/workflow, evidence, business logic, acceptance criteria (Given/When/Then) and native Mermaid code. As-Is describes baseline QA/regression, To-Be describes agreed implementation, and Future is a proposed backlog only.
 
-| Identifier | Purpose |
-|---|---|
-| UTL-A## | Existing screenshot functionality; QA verifies |
-| UTL-P## | Approved To-Be features; UTL-P17 intentionally unused to avoid duplicating Add Integration |
-| UTL-F## | Future only, not implementation approved |
-| UTL-GO-### | Business goal |
-| UTL-WF-A##/P##/F## | Linked workflow |
-| UTL-BR-### | Business rule |
-| UTL-OD-### | Open decision |
+| Identifier         | Purpose                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| UTL-A##            | Existing screenshot functionality; QA verifies                                             |
+| UTL-P##            | Approved To-Be features; UTL-P17 intentionally unused to avoid duplicating Add Integration |
+| UTL-F##            | Future only, not implementation approved                                                   |
+| UTL-GO-###         | Business goal                                                                              |
+| UTL-WF-A##/P##/F## | Linked workflow                                                                            |
+| UTL-BR-###         | Business rule                                                                              |
+| UTL-OD-###         | Open decision                                                                              |
 
 ## 2. Feature summary
 
-| Class | Count | Identifiers |
-|---|---|---|
-| As-Is | 14 | UTL-A01–A14 |
-| To-Be | 17 | UTL-P01–P16, P18 (no P17) |
-| Future | 7 | UTL-F01–F07 |
+| Class  | Count | Identifiers               |
+| ------ | ----- | ------------------------- |
+| As-Is  | 14    | UTL-A01–A14               |
+| To-Be  | 17    | UTL-P01–P16, P18 (no P17) |
+| Future | 7     | UTL-F01–F07               |
 
 ## 3. Detailed As-Is feature catalogue – QA/Jira verification stories
 
@@ -1137,34 +1137,34 @@ flowchart TD
 
 ### Field / UI evidence inventory
 
-| Page | Visible fields / actions |
-|---|---|
-| Quick Entry | Donor Name, Amount, Date, Campaign, Payment Method, row delete, Add Row, Save All Donations |
-| Import/Export | Donors, Donations, Campaigns import types; CSV/Excel file choice; donor/donation/campaign export cards |
-| Duplicate Management | No Duplicates Found empty state; any merge capability unverified |
-| Code Management | All Codes, GL Codes, Campaign Codes; Type/Code/Name/Description/Status/Actions; Add Code |
-| Template Manager | All Types, Email, SMS; cards and Edit/Delete; Create Template |
-| API Integration & Data Sync | Existing connected/disconnected integration cards, Sync Now, Add Integration and key-security warning |
+| Page                        | Visible fields / actions                                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Quick Entry                 | Donor Name, Amount, Date, Campaign, Payment Method, row delete, Add Row, Save All Donations            |
+| Import/Export               | Donors, Donations, Campaigns import types; CSV/Excel file choice; donor/donation/campaign export cards |
+| Duplicate Management        | No Duplicates Found empty state; any merge capability unverified                                       |
+| Code Management             | All Codes, GL Codes, Campaign Codes; Type/Code/Name/Description/Status/Actions; Add Code               |
+| Template Manager            | All Types, Email, SMS; cards and Edit/Delete; Create Template                                          |
+| API Integration & Data Sync | Existing connected/disconnected integration cards, Sync Now, Add Integration and key-security warning  |
 
 ### Business rules
 
-| ID | Requirement |
-|---|---|
+| ID         | Requirement                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------ |
 | UTL-BR-001 | All pre-existing Utilities UI and behaviour remains a QA baseline; nonfunctional actions are labelled. |
-| UTL-BR-002 | Tenant isolation applies to integrations, source records, local modifications and processing. |
-| UTL-BR-003 | New connectors and their mappings need client data and Development approval. |
-| UTL-BR-004 | Preserve source application and source record identity on sync. |
-| UTL-BR-005 | Records from different applications remain separate; All Sources is not an automatic merge. |
-| UTL-BR-006 | Native AiXPurpose records coexist with external-source records. |
-| UTL-BR-007 | Locally overridden field is the effective value; preserve latest source value. |
-| UTL-BR-008 | First sync imports available history, then supported incremental changes. |
-| UTL-BR-009 | Scheduled sync and Sync Now share mapping/matching/override rules. |
-| UTL-BR-010 | Retry/backfill must not duplicate source records or erase local edits. |
-| UTL-BR-011 | Failed processing must not overwrite committed data or incorrectly advance a cursor. |
-| UTL-BR-012 | Disconnect retains stored source data and marks source disconnected. |
-| UTL-BR-013 | Donor records respect existing Member–Donor eligibility and donation rules. |
-| UTL-BR-014 | No source writeback unless separately authorised in future scope. |
-| UTL-BR-015 | KPI deduplication/counting and disconnected record editability remain open. |
+| UTL-BR-002 | Tenant isolation applies to integrations, source records, local modifications and processing.          |
+| UTL-BR-003 | New connectors and their mappings need client data and Development approval.                           |
+| UTL-BR-004 | Preserve source application and source record identity on sync.                                        |
+| UTL-BR-005 | Records from different applications remain separate; All Sources is not an automatic merge.            |
+| UTL-BR-006 | Native AiXPurpose records coexist with external-source records.                                        |
+| UTL-BR-007 | Locally overridden field is the effective value; preserve latest source value.                         |
+| UTL-BR-008 | First sync imports available history, then supported incremental changes.                              |
+| UTL-BR-009 | Scheduled sync and Sync Now share mapping/matching/override rules.                                     |
+| UTL-BR-010 | Retry/backfill must not duplicate source records or erase local edits.                                 |
+| UTL-BR-011 | Failed processing must not overwrite committed data or incorrectly advance a cursor.                   |
+| UTL-BR-012 | Disconnect retains stored source data and marks source disconnected.                                   |
+| UTL-BR-013 | Donor records respect existing Member–Donor eligibility and donation rules.                            |
+| UTL-BR-014 | No source writeback unless separately authorised in future scope.                                      |
+| UTL-BR-015 | KPI deduplication/counting and disconnected record editability remain open.                            |
 
 ### Data handling examples (illustrative only)
 
@@ -1176,63 +1176,63 @@ flowchart TD
 
 ## 7. Feature/Goal/Workflow traceability
 
-| Business Goal | Feature Story | Workflow | Area |
-|---|---|---|---|
-| UTL-GO-001 | UTL-A01 | UTL-WF-A01 | Quick Entry donation grid |
-| UTL-GO-002 | UTL-A02 | UTL-WF-A02 | Quick Entry row management |
-| UTL-GO-003 | UTL-A03 | UTL-WF-A03 | Quick Entry Save All Donations |
-| UTL-GO-004 | UTL-A04 | UTL-WF-A04 | Import data selection |
-| UTL-GO-005 | UTL-A05 | UTL-WF-A05 | Export data actions |
-| UTL-GO-006 | UTL-A06 | UTL-WF-A06 | Duplicate Management overview |
-| UTL-GO-007 | UTL-A07 | UTL-WF-A07 | Code Management listing |
-| UTL-GO-008 | UTL-A08 | UTL-WF-A08 | Add Code action |
-| UTL-GO-009 | UTL-A09 | UTL-WF-A09 | Template Manager listing |
-| UTL-GO-010 | UTL-A10 | UTL-WF-A10 | Create Template action |
-| UTL-GO-011 | UTL-A11 | UTL-WF-A11 | Integration registry |
-| UTL-GO-012 | UTL-A12 | UTL-WF-A12 | Sync Now control |
-| UTL-GO-013 | UTL-A13 | UTL-WF-A13 | Add Integration control |
-| UTL-GO-014 | UTL-A14 | UTL-WF-A14 | Existing connector mapping baseline |
-| UTL-GO-015 | UTL-P01 | UTL-WF-P01 | Functional Add Integration |
-| UTL-GO-016 | UTL-P02 | UTL-WF-P02 | Multiple connections per tenant |
-| UTL-GO-017 | UTL-P03 | UTL-WF-P03 | Application-wise tabs and All Sources |
-| UTL-GO-018 | UTL-P04 | UTL-WF-P04 | Approved source-to-module mapping |
-| UTL-GO-019 | UTL-P05 | UTL-WF-P05 | Source provenance |
-| UTL-GO-020 | UTL-P06 | UTL-WF-P06 | Manual and integrated records coexist |
-| UTL-GO-021 | UTL-P07 | UTL-WF-P07 | Local overrides and source preservation |
-| UTL-GO-022 | UTL-P08 | UTL-WF-P08 | Initial import and incremental automatic/manual sync |
-| UTL-GO-023 | UTL-P09 | UTL-WF-P09 | Sync status and safe failure handling |
-| UTL-GO-024 | UTL-P10 | UTL-WF-P10 | Per-source record identity and non-merging |
-| UTL-GO-025 | UTL-P11 | UTL-WF-P11 | Tenant isolation |
-| UTL-GO-026 | UTL-P12 | UTL-WF-P12 | Disconnect with data retention |
-| UTL-GO-027 | UTL-P13 | UTL-WF-P13 | Existing mappings and new-connector approval |
-| UTL-GO-028 | UTL-P14 | UTL-WF-P14 | Save All Donations works |
-| UTL-GO-029 | UTL-P15 | UTL-WF-P15 | Functional Add Code |
-| UTL-GO-030 | UTL-P16 | UTL-WF-P16 | Functional Create Template |
-| UTL-GO-031 | UTL-P18 | UTL-WF-P17 | Authorised historical re-sync / backfill |
-| UTL-GO-032 | UTL-F01 | UTL-WF-F01 | Advanced scheduling controls |
-| UTL-GO-033 | UTL-F02 | UTL-WF-F02 | Two-way source writeback |
-| UTL-GO-034 | UTL-F03 | UTL-WF-F03 | Tenant-controlled advanced mappings |
-| UTL-GO-035 | UTL-F04 | UTL-WF-F04 | Integration health dashboard |
-| UTL-GO-036 | UTL-F05 | UTL-WF-F05 | Detailed sync history and reconciliation |
-| UTL-GO-037 | UTL-F06 | UTL-WF-F06 | Configurable source priorities |
-| UTL-GO-038 | UTL-F07 | UTL-WF-F07 | Integration-specific access controls |
+| Business Goal | Feature Story | Workflow   | Area                                                 |
+| ------------- | ------------- | ---------- | ---------------------------------------------------- |
+| UTL-GO-001    | UTL-A01       | UTL-WF-A01 | Quick Entry donation grid                            |
+| UTL-GO-002    | UTL-A02       | UTL-WF-A02 | Quick Entry row management                           |
+| UTL-GO-003    | UTL-A03       | UTL-WF-A03 | Quick Entry Save All Donations                       |
+| UTL-GO-004    | UTL-A04       | UTL-WF-A04 | Import data selection                                |
+| UTL-GO-005    | UTL-A05       | UTL-WF-A05 | Export data actions                                  |
+| UTL-GO-006    | UTL-A06       | UTL-WF-A06 | Duplicate Management overview                        |
+| UTL-GO-007    | UTL-A07       | UTL-WF-A07 | Code Management listing                              |
+| UTL-GO-008    | UTL-A08       | UTL-WF-A08 | Add Code action                                      |
+| UTL-GO-009    | UTL-A09       | UTL-WF-A09 | Template Manager listing                             |
+| UTL-GO-010    | UTL-A10       | UTL-WF-A10 | Create Template action                               |
+| UTL-GO-011    | UTL-A11       | UTL-WF-A11 | Integration registry                                 |
+| UTL-GO-012    | UTL-A12       | UTL-WF-A12 | Sync Now control                                     |
+| UTL-GO-013    | UTL-A13       | UTL-WF-A13 | Add Integration control                              |
+| UTL-GO-014    | UTL-A14       | UTL-WF-A14 | Existing connector mapping baseline                  |
+| UTL-GO-015    | UTL-P01       | UTL-WF-P01 | Functional Add Integration                           |
+| UTL-GO-016    | UTL-P02       | UTL-WF-P02 | Multiple connections per tenant                      |
+| UTL-GO-017    | UTL-P03       | UTL-WF-P03 | Application-wise tabs and All Sources                |
+| UTL-GO-018    | UTL-P04       | UTL-WF-P04 | Approved source-to-module mapping                    |
+| UTL-GO-019    | UTL-P05       | UTL-WF-P05 | Source provenance                                    |
+| UTL-GO-020    | UTL-P06       | UTL-WF-P06 | Manual and integrated records coexist                |
+| UTL-GO-021    | UTL-P07       | UTL-WF-P07 | Local overrides and source preservation              |
+| UTL-GO-022    | UTL-P08       | UTL-WF-P08 | Initial import and incremental automatic/manual sync |
+| UTL-GO-023    | UTL-P09       | UTL-WF-P09 | Sync status and safe failure handling                |
+| UTL-GO-024    | UTL-P10       | UTL-WF-P10 | Per-source record identity and non-merging           |
+| UTL-GO-025    | UTL-P11       | UTL-WF-P11 | Tenant isolation                                     |
+| UTL-GO-026    | UTL-P12       | UTL-WF-P12 | Disconnect with data retention                       |
+| UTL-GO-027    | UTL-P13       | UTL-WF-P13 | Existing mappings and new-connector approval         |
+| UTL-GO-028    | UTL-P14       | UTL-WF-P14 | Save All Donations works                             |
+| UTL-GO-029    | UTL-P15       | UTL-WF-P15 | Functional Add Code                                  |
+| UTL-GO-030    | UTL-P16       | UTL-WF-P16 | Functional Create Template                           |
+| UTL-GO-031    | UTL-P18       | UTL-WF-P17 | Authorised historical re-sync / backfill             |
+| UTL-GO-032    | UTL-F01       | UTL-WF-F01 | Advanced scheduling controls                         |
+| UTL-GO-033    | UTL-F02       | UTL-WF-F02 | Two-way source writeback                             |
+| UTL-GO-034    | UTL-F03       | UTL-WF-F03 | Tenant-controlled advanced mappings                  |
+| UTL-GO-035    | UTL-F04       | UTL-WF-F04 | Integration health dashboard                         |
+| UTL-GO-036    | UTL-F05       | UTL-WF-F05 | Detailed sync history and reconciliation             |
+| UTL-GO-037    | UTL-F06       | UTL-WF-F06 | Configurable source priorities                       |
+| UTL-GO-038    | UTL-F07       | UTL-WF-F07 | Integration-specific access controls                 |
 
 ### Open decisions
 
-| Decision | Subject | Review owner |
-|---|---|---|
-| UTL-OD-001 | Cross-source KPI counting and unique-person reporting | Reporting/Product |
-| UTL-OD-002 | Incomplete member identity for externally sourced donations | Members/Donors Product |
-| UTL-OD-003 | Initial approved connector list beyond confirmed DonorPerfect and iWave | Development |
-| UTL-OD-004 | Default sync schedule, sync source change-token/timestamp capabilities | Product/Development |
-| UTL-OD-005 | Visibility, editing and reporting after disconnect | Product |
-| UTL-OD-006 | Partial commit, retry and failed-row outcomes | Development/QA |
-| UTL-OD-007 | Add Code fields, validation, uniqueness and access | Product/Development |
-| UTL-OD-008 | Create Template fields, supported tokens and rules | Product/Development |
-| UTL-OD-009 | Quick Entry invalid-row, all-or-nothing vs partial save, duplicate-safe outcomes | Product/Development |
-| UTL-OD-010 | Same-source record identity matching and backfill boundaries | Development |
-| UTL-OD-011 | Exact fields allowed for local source-record editing | Product/Module owners |
-| UTL-OD-012 | Existing Kindsight screenshot vs confirmed iWave integration: environment/connector status | QA/Development |
+| Decision   | Subject                                                                                    | Review owner           |
+| ---------- | ------------------------------------------------------------------------------------------ | ---------------------- |
+| UTL-OD-001 | Cross-source KPI counting and unique-person reporting                                      | Reporting/Product      |
+| UTL-OD-002 | Incomplete member identity for externally sourced donations                                | Members/Donors Product |
+| UTL-OD-003 | Initial approved connector list beyond confirmed DonorPerfect and iWave                    | Development            |
+| UTL-OD-004 | Default sync schedule, sync source change-token/timestamp capabilities                     | Product/Development    |
+| UTL-OD-005 | Visibility, editing and reporting after disconnect                                         | Product                |
+| UTL-OD-006 | Partial commit, retry and failed-row outcomes                                              | Development/QA         |
+| UTL-OD-007 | Add Code fields, validation, uniqueness and access                                         | Product/Development    |
+| UTL-OD-008 | Create Template fields, supported tokens and rules                                         | Product/Development    |
+| UTL-OD-009 | Quick Entry invalid-row, all-or-nothing vs partial save, duplicate-safe outcomes           | Product/Development    |
+| UTL-OD-010 | Same-source record identity matching and backfill boundaries                               | Development            |
+| UTL-OD-011 | Exact fields allowed for local source-record editing                                       | Product/Module owners  |
+| UTL-OD-012 | Existing Kindsight screenshot vs confirmed iWave integration: environment/connector status | QA/Development         |
 
 ## 8. Jira and QA handoff
 

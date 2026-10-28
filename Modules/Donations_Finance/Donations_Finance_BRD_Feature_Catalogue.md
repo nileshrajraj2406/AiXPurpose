@@ -21,39 +21,39 @@ Jira-ready specification inventory. Each feature includes its own Admin story, f
 
 ## 1. Feature inventory
 
-| ID | Area | Feature | Classification |
-|---|---|---|---|
-| DF-001 | Donations | Donation KPI cards and listing | As-Is UI / KPI Jira baseline |
-| DF-002 | Donations | Donation detail and audit history | As-Is UI |
-| DF-003 | Donations | Existing Add Donation form | As-Is UI gap |
-| DF-004 | Donations | Refund action display | As-Is UI / pending business decision |
-| DF-005 | Pledges | Pledge listing and status/detail views | As-Is UI |
-| DF-006 | Pledges | Create Pledge, Add Installment, Mark Paid existing interactions | As-Is UI / integration data workflow |
-| DF-007 | Pledges | Configurable pledge KPI selection | As-Is Jira development baseline |
-| DF-008 | Receipts | Receipt list, individual PDF and email | As-Is confirmed / batch UI gap |
-| DF-009 | Donations | Gateway-backed native Add Donation | To-Be |
-| DF-010 | Donations | Native editable record lifecycle | To-Be shared |
-| DF-011 | Pledges | Native pledge creation, payment and installment mapping | To-Be |
-| DF-012 | Receipts | Native receipt issuance and numbering | To-Be |
-| DF-013 | Receipts | Batch receipt PDF download | To-Be |
-| DF-014 | Receipts | Batch receipt email sending | To-Be |
-| DF-015 | Reconciliation | Bank statement import | To-Be limited scope |
-| DF-016 | Reconciliation | Transaction review and source filter | To-Be limited scope |
-| DF-017 | Reconciliation | Reconciliation KPI representation | To-Be limited scope / legacy UI |
-| DF-018 | Shared | Per-page Source dropdown | To-Be shared |
-| DF-019 | Shared | Origin visibility and read-only enforcement | To-Be shared |
-| DF-020 | Shared | Tenant isolation and source provenance | To-Be cross-module |
-| DF-021 | Shared | Existing Donations configurable KPI baseline | As-Is Jira development baseline |
-| DF-022 | Future | Automatic bank transaction matching | Future candidate DF-F01 |
-| DF-023 | Future | Advanced reconciliation exceptions and matching | Future candidate DF-F02 |
-| DF-024 | Future | Source-aware refund processing and synchronization | Future candidate DF-F03 / pending |
-| DF-025 | Future | Receipt template customization | Future candidate DF-F04 |
-| DF-026 | Future | Pledge payment reminders | Future candidate DF-F05 |
-| DF-027 | Future | Financial reconciliation export | Future candidate DF-F06 |
-| DF-028 | Future | Multi-donor pledge management | Future candidate DF-F07 / pending |
-| DF-029 | Donations | Donation template import and native match/update | To-Be — UPDATED v1.1 |
-| DF-030 | Pledges | Pledge template import and native match/update | To-Be — UPDATED v1.1 |
-| DF-031 | Shared Imports | Import preview, unmatched resolution and refreshed data | To-Be — UPDATED v1.1 |
+| ID     | Area           | Feature                                                         | Classification                       |
+| ------ | -------------- | --------------------------------------------------------------- | ------------------------------------ |
+| DF-001 | Donations      | Donation KPI cards and listing                                  | As-Is UI / KPI Jira baseline         |
+| DF-002 | Donations      | Donation detail and audit history                               | As-Is UI                             |
+| DF-003 | Donations      | Existing Add Donation form                                      | As-Is UI gap                         |
+| DF-004 | Donations      | Refund action display                                           | As-Is UI / pending business decision |
+| DF-005 | Pledges        | Pledge listing and status/detail views                          | As-Is UI                             |
+| DF-006 | Pledges        | Create Pledge, Add Installment, Mark Paid existing interactions | As-Is UI / integration data workflow |
+| DF-007 | Pledges        | Configurable pledge KPI selection                               | As-Is Jira development baseline      |
+| DF-008 | Receipts       | Receipt list, individual PDF and email                          | As-Is confirmed / batch UI gap       |
+| DF-009 | Donations      | Gateway-backed native Add Donation                              | To-Be                                |
+| DF-010 | Donations      | Native editable record lifecycle                                | To-Be shared                         |
+| DF-011 | Pledges        | Native pledge creation, payment and installment mapping         | To-Be                                |
+| DF-012 | Receipts       | Native receipt issuance and numbering                           | To-Be                                |
+| DF-013 | Receipts       | Batch receipt PDF download                                      | To-Be                                |
+| DF-014 | Receipts       | Batch receipt email sending                                     | To-Be                                |
+| DF-015 | Reconciliation | Bank statement import                                           | To-Be limited scope                  |
+| DF-016 | Reconciliation | Transaction review and source filter                            | To-Be limited scope                  |
+| DF-017 | Reconciliation | Reconciliation KPI representation                               | To-Be limited scope / legacy UI      |
+| DF-018 | Shared         | Per-page Source dropdown                                        | To-Be shared                         |
+| DF-019 | Shared         | Origin visibility and read-only enforcement                     | To-Be shared                         |
+| DF-020 | Shared         | Tenant isolation and source provenance                          | To-Be cross-module                   |
+| DF-021 | Shared         | Existing Donations configurable KPI baseline                    | As-Is Jira development baseline      |
+| DF-022 | Future         | Automatic bank transaction matching                             | Future candidate DF-F01              |
+| DF-023 | Future         | Advanced reconciliation exceptions and matching                 | Future candidate DF-F02              |
+| DF-024 | Future         | Source-aware refund processing and synchronization              | Future candidate DF-F03 / pending    |
+| DF-025 | Future         | Receipt template customization                                  | Future candidate DF-F04              |
+| DF-026 | Future         | Pledge payment reminders                                        | Future candidate DF-F05              |
+| DF-027 | Future         | Financial reconciliation export                                 | Future candidate DF-F06              |
+| DF-028 | Future         | Multi-donor pledge management                                   | Future candidate DF-F07 / pending    |
+| DF-029 | Donations      | Donation template import and native match/update                | To-Be — UPDATED v1.1                 |
+| DF-030 | Pledges        | Pledge template import and native match/update                  | To-Be — UPDATED v1.1                 |
+| DF-031 | Shared Imports | Import preview, unmatched resolution and refreshed data         | To-Be — UPDATED v1.1                 |
 
 ## DF-001 — Donation KPI cards and listing
 
@@ -1289,37 +1289,35 @@ flowchart TD
 
 ## 2. Open decisions and cross-module alignment
 
-| ID | Outstanding matter | Owner |
-|---|---|---|
-| OD-01 | Payment gateway provider, confirmation/webhook, settlement and failure semantics | Development / Finance |
-| OD-02 | Native receipt number pattern, uniqueness boundary, legal/organisation fields | Product / Finance / Development |
-| OD-03 | Bank import file format, field mapping, statement-level duplicate detection | Development |
-| OD-04 | Exact eligible transaction sources including whether each connector supplies transaction-level donation/pledge data | Development / Data mapping |
-| OD-05 | Batch send limits, duplicate-send treatment and recipient error recovery | Development / Product |
-| OD-06 | Native pledge and installment schema, payment linkage and no double counting | Development / Finance |
-| OD-07 | Refund provider and source-system workflow | Future discussion |
-| OD-08 | Multi-donor pledge ownership/allocation/payment responsibility | Future discussion |
-| OD-09 | Existing reconciliation matching KPI meaning and whether unsupported cards should be hidden/qualified | Product / Development |
-| OD-10 | Existing disabled Create/Edit actions and QA checklist for each Donations & Finance screen | QA / Development |
+| ID    | Outstanding matter                                                                                                  | Owner                           |
+| ----- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| OD-01 | Payment gateway provider, confirmation/webhook, settlement and failure semantics                                    | Development / Finance           |
+| OD-02 | Native receipt number pattern, uniqueness boundary, legal/organisation fields                                       | Product / Finance / Development |
+| OD-03 | Bank import file format, field mapping, statement-level duplicate detection                                         | Development                     |
+| OD-04 | Exact eligible transaction sources including whether each connector supplies transaction-level donation/pledge data | Development / Data mapping      |
+| OD-05 | Batch send limits, duplicate-send treatment and recipient error recovery                                            | Development / Product           |
+| OD-06 | Native pledge and installment schema, payment linkage and no double counting                                        | Development / Finance           |
+| OD-07 | Refund provider and source-system workflow                                                                          | Future discussion               |
+| OD-08 | Multi-donor pledge ownership/allocation/payment responsibility                                                      | Future discussion               |
+| OD-09 | Existing reconciliation matching KPI meaning and whether unsupported cards should be hidden/qualified               | Product / Development           |
+| OD-10 | Existing disabled Create/Edit actions and QA checklist for each Donations & Finance screen                          | QA / Development                |
 
 ## Screenshot references — original application captures
 
 The following images are extracted without editing from **donation and finance module.docx**, in document image order. Screenshots establish interface presence, not server-side functionality.
 
-| Figure | Source screenshot |
-|---|---|
-| 1 | ![Original Donations and Finance screenshot 1](screenshots/donation_finance_01.png) |
-| 2 | ![Original Donations and Finance screenshot 2](screenshots/donation_finance_02.png) |
-| 3 | ![Original Donations and Finance screenshot 3](screenshots/donation_finance_03.png) |
-| 4 | ![Original Donations and Finance screenshot 4](screenshots/donation_finance_04.png) |
-| 5 | ![Original Donations and Finance screenshot 5](screenshots/donation_finance_05.png) |
-| 6 | ![Original Donations and Finance screenshot 6](screenshots/donation_finance_06.png) |
-| 7 | ![Original Donations and Finance screenshot 7](screenshots/donation_finance_07.png) |
-| 8 | ![Original Donations and Finance screenshot 8](screenshots/donation_finance_08.png) |
-| 9 | ![Original Donations and Finance screenshot 9](screenshots/donation_finance_09.png) |
-| 10 | ![Original Donations and Finance screenshot 10](screenshots/donation_finance_10.png) |
-
-
+| Figure | Source screenshot                                                                    |
+| ------ | ------------------------------------------------------------------------------------ |
+| 1      | ![Original Donations and Finance screenshot 1](screenshots/donation_finance_01.png)  |
+| 2      | ![Original Donations and Finance screenshot 2](screenshots/donation_finance_02.png)  |
+| 3      | ![Original Donations and Finance screenshot 3](screenshots/donation_finance_03.png)  |
+| 4      | ![Original Donations and Finance screenshot 4](screenshots/donation_finance_04.png)  |
+| 5      | ![Original Donations and Finance screenshot 5](screenshots/donation_finance_05.png)  |
+| 6      | ![Original Donations and Finance screenshot 6](screenshots/donation_finance_06.png)  |
+| 7      | ![Original Donations and Finance screenshot 7](screenshots/donation_finance_07.png)  |
+| 8      | ![Original Donations and Finance screenshot 8](screenshots/donation_finance_08.png)  |
+| 9      | ![Original Donations and Finance screenshot 9](screenshots/donation_finance_09.png)  |
+| 10     | ![Original Donations and Finance screenshot 10](screenshots/donation_finance_10.png) |
 
 ## DF-029 — Donation template import and native match/update (UPDATED)
 
@@ -1372,7 +1370,6 @@ flowchart TD
  I --> L
 ```
 
-
 ## DF-030 — Pledge template import and native match/update (UPDATED)
 
 **Classification:** To-Be. **Module:** Pledges. **Actor:** Admin (only application user).
@@ -1423,7 +1420,6 @@ flowchart TD
  H --> L
  I --> L
 ```
-
 
 ## DF-031 — Import preview, unmatched resolution and refreshed data (UPDATED)
 

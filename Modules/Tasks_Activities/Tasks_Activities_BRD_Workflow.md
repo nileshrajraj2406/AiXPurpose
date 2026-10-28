@@ -4,22 +4,23 @@
 
 ## Document Control
 
-| Field | Details |
-|---|---|
-| Product | AiXPurpose Standalone |
-| Module | Tasks & Activities |
-| Document | BRD Workflow |
-| Version | 1.0 |
-| Status | Draft for Business and Development Review |
-| Scope classification | **To-Be only**. No As-Is functionality implemented and no future enhancement scope. |
-| Source | Provided `TASK AND ANALYTICS MODULE.docx` screenshots and approved decisions Q1–Q4 |
-| Related documents | Tasks_Activities_BRD_Goals.md, Tasks_Activities_BRD_Workflow.md, Tasks_Activities_BRD_Feature_Catalogue.md |
+| Field                | Details                                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Product              | AiXPurpose Standalone                                                                                      |
+| Module               | Tasks & Activities                                                                                         |
+| Document             | BRD Workflow                                                                                               |
+| Version              | 1.0                                                                                                        |
+| Status               | Draft for Business and Development Review                                                                  |
+| Scope classification | **To-Be only**. No As-Is functionality implemented and no future enhancement scope.                        |
+| Source               | Provided `TASK AND ANALYTICS MODULE.docx` screenshots and approved decisions Q1–Q4                         |
+| Related documents    | Tasks_Activities_BRD_Goals.md, Tasks_Activities_BRD_Workflow.md, Tasks_Activities_BRD_Feature_Catalogue.md |
 
 ## Overview
 
 This document defines the **proposed, not yet implemented** Tasks & Activities scope. The screenshots illustrate target interfaces only. Unspecified behaviour is listed as an open decision, not filled in as fact.
 
 ## Contents
+
 1. Workflow Principles
 2. Workflow Inventory
 3. Detailed To-Be Workflows
@@ -28,18 +29,19 @@ This document defines the **proposed, not yet implemented** Tasks & Activities s
 6. Screenshot References
 
 ## 1. Workflow Principles
+
 - All diagrams show **To-Be** flows only. No As-Is or future scope is claimed.
 - Use existing donors, campaigns and other related entities where applicable.
 - Validation and payment logic not supported by the source stays open.
 
 ## 2. Workflow Inventory
 
-| Workflow | Page | Goal |
-|---|---|---|
-| TA-WF-01 | Tasks | TA-GO-001 |
+| Workflow | Page             | Goal      |
+| -------- | ---------------- | --------- |
+| TA-WF-01 | Tasks            | TA-GO-001 |
 | TA-WF-02 | Batch Gift Entry | TA-GO-002 |
 | TA-WF-03 | Event Management | TA-GO-003 |
-| TA-WF-04 | Monthly Giving | TA-GO-004 |
+| TA-WF-04 | Monthly Giving   | TA-GO-004 |
 | TA-WF-05 | Moves Management | TA-GO-005 |
 
 ## 3.1 TA-WF-01 – Tasks
@@ -47,6 +49,7 @@ This document defines the **proposed, not yet implemented** Tasks & Activities s
 **Classification:** To-Be. **Goal:** TA-GO-001. **Features:** TA-F-001, TA-F-002, TA-F-003.
 
 **Steps:**
+
 1. Open Tasks; display saved tasks and search/filter controls.
 2. Create a task with the supported related record, name and due date.
 3. Save and show the task in the list.
@@ -108,12 +111,12 @@ flowchart TD
     E --> F[Save or display result]
 ```
 
-
 ## 3.2 TA-WF-02 – Batch Gift Entry
 
 **Classification:** To-Be. **Goal:** TA-GO-002. **Features:** TA-F-004, TA-F-005, TA-F-006.
 
 **Steps:**
+
 1. Open Batch Gift Entry and enter donations row by row or use Import CSV.
 2. Show total rows, valid entries, invalid entries and total amount.
 3. Select Save Batch after validation.
@@ -175,12 +178,12 @@ flowchart TD
     E --> F[Save or display result]
 ```
 
-
 ## 3.3 TA-WF-03 – Event Management
 
 **Classification:** To-Be. **Goal:** TA-GO-003. **Features:** TA-F-007, TA-F-008.
 
 **Steps:**
+
 1. Open Events and switch Upcoming/Past.
 2. Create an event with name, date, location and optional description.
 3. View event details and metrics; add attendees.
@@ -228,12 +231,12 @@ flowchart TD
     E --> F[Save or display result]
 ```
 
-
 ## 3.4 TA-WF-04 – Monthly Giving
 
 **Classification:** To-Be. **Goal:** TA-GO-004. **Features:** TA-F-009, TA-F-010.
 
 **Steps:**
+
 1. Open Monthly Giving and review Active/Paused/Cancelled tabs and KPI cards.
 2. Choose Create Plan; select donor and enter amount, frequency, dates.
 3. Save the plan and show its status.
@@ -281,12 +284,12 @@ flowchart TD
     E --> F[Save or display result]
 ```
 
-
 ## 3.5 TA-WF-05 – Moves Management
 
 **Classification:** To-Be. **Goal:** TA-GO-005. **Features:** TA-F-011, TA-F-012, TA-F-013, TA-F-014.
 
 **Steps:**
+
 1. Open Moves Management and review stages and counts.
 2. Select Add to Pipeline; choose existing donor, starting stage and potential value.
 3. Save donor to pipeline.
@@ -363,6 +366,7 @@ flowchart TD
 ```
 
 ## 4. Shared Validation and Exceptions
+
 - Required fields are visible on each creation form; respect the screenshot and do not add undocumented fields.
 - Related donor/campaign references must resolve to eligible records.
 - Batch save behaviour remains pending Development confirmation.
@@ -370,9 +374,11 @@ flowchart TD
 - Recurring payment processing remains undefined.
 
 ## 5. Decisions and Traceability
+
 See `Tasks_Activities_BRD_Goals.md` Section 6 for TA-OD-001–006; every workflow maps to its corresponding TA-GO and TA-F items above.
 
 ## 6. Screenshot References
+
 - **1**: ![1](screenshots/01_source.png)
 - **2**: ![2](screenshots/02_source.png)
 - **3**: ![3](screenshots/03_source.png)

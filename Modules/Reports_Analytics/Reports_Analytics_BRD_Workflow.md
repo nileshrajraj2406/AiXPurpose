@@ -8,12 +8,12 @@
 
 ## Document Control
 
-| Field | Value |
-|---|---|
-| Source of truth | Uploaded Reports & Analytics screenshots and description; approved Q1–Q4 decisions; established Members/Donors rules; latest integration read-only policy |
-| Related BRDs | Reports & Analytics Goals, Workflow, Feature Catalogue |
-| Requirement IDs | RA-GO-###, RA-BR-###, RA-WF-##, RA-F-###, RA-OD-### |
-| Development assumption | Screen is a proposed reference; visible controls do not prove implementation |
+| Field                  | Value                                                                                                                                                     |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Source of truth        | Uploaded Reports & Analytics screenshots and description; approved Q1–Q4 decisions; established Members/Donors rules; latest integration read-only policy |
+| Related BRDs           | Reports & Analytics Goals, Workflow, Feature Catalogue                                                                                                    |
+| Requirement IDs        | RA-GO-###, RA-BR-###, RA-WF-##, RA-F-###, RA-OD-###                                                                                                       |
+| Development assumption | Screen is a proposed reference; visible controls do not prove implementation                                                                              |
 
 ## Overview
 
@@ -34,17 +34,17 @@ All described workflows are **To-Be**. Workflow steps reflect only supplied UI c
 
 **Actors:** authorised reporting user, permitted report scheduler, AiXPurpose reporting service and tenant-bound data sources. No new user roles are assumed. Native records remain editable only in their owner modules by authorised users; integrated records are read-only.
 
-| ID | Business Rule |
-|---|---|
-| RA-BR-001 | Tenant-scoped data, filters, reports, saved definitions and schedules; enforce authorised access. |
-| RA-BR-002 | All Sources counts each eligible source record separately, including native AiXPurpose records; do not deduplicate records from different sources. |
-| RA-BR-003 | Source filtering includes All Sources and individual available connected applications for the tenant. |
+| ID        | Business Rule                                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RA-BR-001 | Tenant-scoped data, filters, reports, saved definitions and schedules; enforce authorised access.                                                                                                                   |
+| RA-BR-002 | All Sources counts each eligible source record separately, including native AiXPurpose records; do not deduplicate records from different sources.                                                                  |
+| RA-BR-003 | Source filtering includes All Sources and individual available connected applications for the tenant.                                                                                                               |
 | RA-BR-004 | Records received from integrations are strictly read-only in AiXPurpose. Only natively created records can be edited in their owning module by authorised users. Report-definition editing never edits source data. |
-| RA-BR-005 | Report metrics and categories rely on approved Donors, Donations, Members, Campaigns and Communications definitions; undefined formulas are open decisions. |
-| RA-BR-006 | Global and report-level filters apply to eligible widgets, charts and exported results consistently. |
-| RA-BR-007 | AI Insights generation method and click actions remain open; do not assume a model or decision engine. |
-| RA-BR-008 | Scheduled report execution, email-delivery rules, and failure handling remain open for Development confirmation. |
-| RA-BR-009 | Data source selectors show only tenant-authorised and supported connected applications and approved native records. |
+| RA-BR-005 | Report metrics and categories rely on approved Donors, Donations, Members, Campaigns and Communications definitions; undefined formulas are open decisions.                                                         |
+| RA-BR-006 | Global and report-level filters apply to eligible widgets, charts and exported results consistently.                                                                                                                |
+| RA-BR-007 | AI Insights generation method and click actions remain open; do not assume a model or decision engine.                                                                                                              |
+| RA-BR-008 | Scheduled report execution, email-delivery rules, and failure handling remain open for Development confirmation.                                                                                                    |
+| RA-BR-009 | Data source selectors show only tenant-authorised and supported connected applications and approved native records.                                                                                                 |
 
 ## 2. End-to-End To-Be Flow
 
@@ -67,28 +67,28 @@ flowchart TD
 
 ## 3. Workflow Inventory
 
-| Workflow ID | To-Be process | Features |
-|---|---|---|
-| RA-WF-01 | KPI summary | RA-F-001 |
-| RA-WF-02 | Global filters | RA-F-002 |
-| RA-WF-03 | Donation trend | RA-F-003 |
-| RA-WF-04 | Channel performance | RA-F-004, RA-F-005 |
-| RA-WF-05 | AI Insights cards | RA-F-006 |
-| RA-WF-06 | Dashboard export | RA-F-007 |
-| RA-WF-07 | Report catalogue | RA-F-008 |
-| RA-WF-08 | Report viewing and filters | RA-F-009 |
-| RA-WF-09 | Standard report export | RA-F-010 |
-| RA-WF-10 | Save as Custom | RA-F-011 |
-| RA-WF-11 | Select source and name | RA-F-012 |
-| RA-WF-12 | Fields, filters and Group By | RA-F-013 |
-| RA-WF-13 | Visualisation | RA-F-014 |
-| RA-WF-14 | Run Report | RA-F-015 |
-| RA-WF-15 | Save Report | RA-F-016 |
-| RA-WF-16 | Saved report listing and search | RA-F-017 |
-| RA-WF-17 | Run saved report | RA-F-018 |
-| RA-WF-18 | Edit saved report | RA-F-019, RA-F-020, RA-F-021 |
-| RA-WF-19 | Create schedule | RA-F-022 |
-| RA-WF-20 | Schedule listing and management | RA-F-023 |
+| Workflow ID | To-Be process                   | Features                     |
+| ----------- | ------------------------------- | ---------------------------- |
+| RA-WF-01    | KPI summary                     | RA-F-001                     |
+| RA-WF-02    | Global filters                  | RA-F-002                     |
+| RA-WF-03    | Donation trend                  | RA-F-003                     |
+| RA-WF-04    | Channel performance             | RA-F-004, RA-F-005           |
+| RA-WF-05    | AI Insights cards               | RA-F-006                     |
+| RA-WF-06    | Dashboard export                | RA-F-007                     |
+| RA-WF-07    | Report catalogue                | RA-F-008                     |
+| RA-WF-08    | Report viewing and filters      | RA-F-009                     |
+| RA-WF-09    | Standard report export          | RA-F-010                     |
+| RA-WF-10    | Save as Custom                  | RA-F-011                     |
+| RA-WF-11    | Select source and name          | RA-F-012                     |
+| RA-WF-12    | Fields, filters and Group By    | RA-F-013                     |
+| RA-WF-13    | Visualisation                   | RA-F-014                     |
+| RA-WF-14    | Run Report                      | RA-F-015                     |
+| RA-WF-15    | Save Report                     | RA-F-016                     |
+| RA-WF-16    | Saved report listing and search | RA-F-017                     |
+| RA-WF-17    | Run saved report                | RA-F-018                     |
+| RA-WF-18    | Edit saved report               | RA-F-019, RA-F-020, RA-F-021 |
+| RA-WF-19    | Create schedule                 | RA-F-022                     |
+| RA-WF-20    | Schedule listing and management | RA-F-023                     |
 
 ## 4. Detailed To-Be Workflows
 
@@ -477,14 +477,14 @@ flowchart TD
 
 ## 5. Exception Handling and Verification
 
-| Situation | Required business response |
-|---|---|
-| Non-matching filter / no records | Show an empty state without fabricated values |
-| Attempted integrated-record edit | Deny record update; report views and editing report configurations are allowed |
-| Unknown metric definition | Track RA-OD-004, do not silently invent formula |
-| AI output undefined | Track RA-OD-001 |
-| Scheduled delivery undefined | Save schedule inputs where implemented; track RA-OD-002/003; do not claim delivery success |
-| Source unconnected or unauthorised | Do not expose the source or its records |
+| Situation                          | Required business response                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------ |
+| Non-matching filter / no records   | Show an empty state without fabricated values                                              |
+| Attempted integrated-record edit   | Deny record update; report views and editing report configurations are allowed             |
+| Unknown metric definition          | Track RA-OD-004, do not silently invent formula                                            |
+| AI output undefined                | Track RA-OD-001                                                                            |
+| Scheduled delivery undefined       | Save schedule inputs where implemented; track RA-OD-002/003; do not claim delivery success |
+| Source unconnected or unauthorised | Do not expose the source or its records                                                    |
 
 ## 6. Screenshot Map
 
@@ -528,37 +528,37 @@ flowchart TD
 
 ## 7. Traceability
 
-| Workflow | Features | Goals |
-|---|---|---|
-| RA-WF-01 | RA-F-001 | RA-GO-001, RA-GO-006 |
-| RA-WF-02 | RA-F-002 | RA-GO-001, RA-GO-006 |
-| RA-WF-03 | RA-F-003 | RA-GO-001, RA-GO-006 |
-| RA-WF-04 | RA-F-004, RA-F-005 | RA-GO-001, RA-GO-006 |
-| RA-WF-05 | RA-F-006 | RA-GO-001, RA-GO-006 |
-| RA-WF-06 | RA-F-007 | RA-GO-001, RA-GO-006 |
-| RA-WF-07 | RA-F-008 | RA-GO-002, RA-GO-006 |
-| RA-WF-08 | RA-F-009 | RA-GO-002, RA-GO-006 |
-| RA-WF-09 | RA-F-010 | RA-GO-002, RA-GO-006 |
-| RA-WF-10 | RA-F-011 | RA-GO-002, RA-GO-006 |
-| RA-WF-11 | RA-F-012 | RA-GO-003, RA-GO-006 |
-| RA-WF-12 | RA-F-013 | RA-GO-003, RA-GO-006 |
-| RA-WF-13 | RA-F-014 | RA-GO-003, RA-GO-006 |
-| RA-WF-14 | RA-F-015 | RA-GO-003, RA-GO-006 |
-| RA-WF-15 | RA-F-016 | RA-GO-003, RA-GO-006 |
-| RA-WF-16 | RA-F-017 | RA-GO-004, RA-GO-006 |
-| RA-WF-17 | RA-F-018 | RA-GO-004, RA-GO-006 |
+| Workflow | Features                     | Goals                |
+| -------- | ---------------------------- | -------------------- |
+| RA-WF-01 | RA-F-001                     | RA-GO-001, RA-GO-006 |
+| RA-WF-02 | RA-F-002                     | RA-GO-001, RA-GO-006 |
+| RA-WF-03 | RA-F-003                     | RA-GO-001, RA-GO-006 |
+| RA-WF-04 | RA-F-004, RA-F-005           | RA-GO-001, RA-GO-006 |
+| RA-WF-05 | RA-F-006                     | RA-GO-001, RA-GO-006 |
+| RA-WF-06 | RA-F-007                     | RA-GO-001, RA-GO-006 |
+| RA-WF-07 | RA-F-008                     | RA-GO-002, RA-GO-006 |
+| RA-WF-08 | RA-F-009                     | RA-GO-002, RA-GO-006 |
+| RA-WF-09 | RA-F-010                     | RA-GO-002, RA-GO-006 |
+| RA-WF-10 | RA-F-011                     | RA-GO-002, RA-GO-006 |
+| RA-WF-11 | RA-F-012                     | RA-GO-003, RA-GO-006 |
+| RA-WF-12 | RA-F-013                     | RA-GO-003, RA-GO-006 |
+| RA-WF-13 | RA-F-014                     | RA-GO-003, RA-GO-006 |
+| RA-WF-14 | RA-F-015                     | RA-GO-003, RA-GO-006 |
+| RA-WF-15 | RA-F-016                     | RA-GO-003, RA-GO-006 |
+| RA-WF-16 | RA-F-017                     | RA-GO-004, RA-GO-006 |
+| RA-WF-17 | RA-F-018                     | RA-GO-004, RA-GO-006 |
 | RA-WF-18 | RA-F-019, RA-F-020, RA-F-021 | RA-GO-004, RA-GO-006 |
-| RA-WF-19 | RA-F-022 | RA-GO-005, RA-GO-006 |
-| RA-WF-20 | RA-F-023 | RA-GO-005, RA-GO-006 |
+| RA-WF-19 | RA-F-022                     | RA-GO-005, RA-GO-006 |
+| RA-WF-20 | RA-F-023                     | RA-GO-005, RA-GO-006 |
 
 ## 8. Open Decisions
 
-| ID | Open decision / confirmation |
-|---|---|
-| RA-OD-001 | AI Insights computation/generation and actions |
-| RA-OD-002 | Schedule execution, email delivery and recipient rules |
-| RA-OD-003 | Schedule failure handling and run/status semantics |
+| ID        | Open decision / confirmation                                                                      |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| RA-OD-001 | AI Insights computation/generation and actions                                                    |
+| RA-OD-002 | Schedule execution, email delivery and recipient rules                                            |
+| RA-OD-003 | Schedule failure handling and run/status semantics                                                |
 | RA-OD-004 | Unconfirmed KPI formulas: conversion, retention, ROI, channel conversions and segment definitions |
-| RA-OD-005 | Builder supported fields, filter/grouping combinations and chart validity |
-| RA-OD-006 | Exact export choices for dashboard/standard reports and Saved/Scheduled action icon semantics |
-| RA-OD-007 | Applicability of global/source filters to specific communications/campaign calculations |
+| RA-OD-005 | Builder supported fields, filter/grouping combinations and chart validity                         |
+| RA-OD-006 | Exact export choices for dashboard/standard reports and Saved/Scheduled action icon semantics     |
+| RA-OD-007 | Applicability of global/source filters to specific communications/campaign calculations           |

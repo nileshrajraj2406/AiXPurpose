@@ -8,33 +8,33 @@
 
 ## Feature inventory and classification
 
-| Feature ID | Feature | Scope |
-|---|---|---|
-| DM-A01 | Module navigation and Admin access | As-Is |
-| DM-A02 | Members listing, search and pagination | As-Is |
-| DM-A03 | Donors listing, search and pagination | As-Is |
-| DM-A04 | Members KPI configuration – approved Jira baseline | Existing Jira baseline (As-Is convention) |
-| DM-A05 | Donors KPI configuration – approved Jira baseline | Existing Jira baseline (As-Is convention) |
-| DM-A06 | Members advanced column selection – approved Jira baseline | Existing Jira baseline (As-Is convention) |
-| DM-A07 | Donors advanced column selection – approved Jira baseline | Existing Jira baseline (As-Is convention) |
-| DM-A08 | Unified Constituent Profile – approved Jira baseline | Existing Jira baseline (As-Is convention) |
-| DM-A09 | Global Search navigation – approved Jira baseline | Existing Jira baseline (As-Is convention) |
-| DM-A10 | Segment listing and type filters | As-Is – working |
-| DM-A11 | Create and manage basic segments | As-Is – working |
-| DM-A12 | Segment email, send communication and export | As-Is – working |
-| DM-A13 | Dynamic/static segment behaviour | As-Is – verification pending |
-| DM-A14 | Prospecting list and categories | As-Is – source/logic verification pending |
-| DM-A15 | Prospect to unified profile navigation | As-Is |
-| DM-T01 | Enable native Member creation | To-Be |
-| DM-T02 | Enable native Member editing | To-Be |
-| DM-T03 | Enable native Donor creation linked to Member | To-Be |
-| DM-T04 | Enable native Donor editing | To-Be |
-| DM-T05 | Shared Source dropdown for eligible lists | To-Be |
-| DM-T06 | Backend source ownership enforcement | To-Be |
-| DM-T07 | Multi-tenant isolation across donor management | To-Be shared invariant |
-| DM-T08 | Multiple segment conditions and AND/OR | To-Be |
-| DM-T09 | Manual include/remove members in segments | To-Be |
-| DM-F06 | Prospect / Donor Strength scoring framework | Future Scope – separate dedicated specification |
+| Feature ID | Feature                                                    | Scope                                           |
+| ---------- | ---------------------------------------------------------- | ----------------------------------------------- |
+| DM-A01     | Module navigation and Admin access                         | As-Is                                           |
+| DM-A02     | Members listing, search and pagination                     | As-Is                                           |
+| DM-A03     | Donors listing, search and pagination                      | As-Is                                           |
+| DM-A04     | Members KPI configuration – approved Jira baseline         | Existing Jira baseline (As-Is convention)       |
+| DM-A05     | Donors KPI configuration – approved Jira baseline          | Existing Jira baseline (As-Is convention)       |
+| DM-A06     | Members advanced column selection – approved Jira baseline | Existing Jira baseline (As-Is convention)       |
+| DM-A07     | Donors advanced column selection – approved Jira baseline  | Existing Jira baseline (As-Is convention)       |
+| DM-A08     | Unified Constituent Profile – approved Jira baseline       | Existing Jira baseline (As-Is convention)       |
+| DM-A09     | Global Search navigation – approved Jira baseline          | Existing Jira baseline (As-Is convention)       |
+| DM-A10     | Segment listing and type filters                           | As-Is – working                                 |
+| DM-A11     | Create and manage basic segments                           | As-Is – working                                 |
+| DM-A12     | Segment email, send communication and export               | As-Is – working                                 |
+| DM-A13     | Dynamic/static segment behaviour                           | As-Is – verification pending                    |
+| DM-A14     | Prospecting list and categories                            | As-Is – source/logic verification pending       |
+| DM-A15     | Prospect to unified profile navigation                     | As-Is                                           |
+| DM-T01     | Enable native Member creation                              | To-Be                                           |
+| DM-T02     | Enable native Member editing                               | To-Be                                           |
+| DM-T03     | Enable native Donor creation linked to Member              | To-Be                                           |
+| DM-T04     | Enable native Donor editing                                | To-Be                                           |
+| DM-T05     | Shared Source dropdown for eligible lists                  | To-Be                                           |
+| DM-T06     | Backend source ownership enforcement                       | To-Be                                           |
+| DM-T07     | Multi-tenant isolation across donor management             | To-Be shared invariant                          |
+| DM-T08     | Multiple segment conditions and AND/OR                     | To-Be                                           |
+| DM-T09     | Manual include/remove members in segments                  | To-Be                                           |
+| DM-F06     | Prospect / Donor Strength scoring framework                | Future Scope – separate dedicated specification |
 
 ## Approved cross-module rules
 
@@ -44,7 +44,7 @@
 - **Member/donor relationship:** donor maps to member; no separate iWave-only profile. A member may never have donated.
 - **Segment definitions:** editable native segment configuration can reference read-only integrated members without modifying source records.
 - **Tenant isolation:** records, segment definitions, exports, suggestions, and communications must be scoped to the active client.
-- **Existing Jira changes:** KPI catalogs, advanced columns, unified profile and Global Search are included in As-Is baseline *by project convention*, but their delivery and QA status must be verified; avoid creating duplicate Jira stories.
+- **Existing Jira changes:** KPI catalogs, advanced columns, unified profile and Global Search are included in As-Is baseline _by project convention_, but their delivery and QA status must be verified; avoid creating duplicate Jira stories.
 - **Prospecting:** existing source-supplied scores/display retained; native donor scoring model is **Future Scope** and not assumed to exist.
 
 ## Detailed Admin user stories and developer-ready acceptance criteria
@@ -210,17 +210,17 @@ flowchart TD
 
 **Original approved KPI reference catalog**
 
-| KPI (UI label) | Definition and calculation | Exact source mapping | Conditions / validation |
-| --- | --- | --- | --- |
-| Total Members | COUNT(DISTINCT m_ID) across included CORE member records. | CORE: m_ID | Count unique IDs; exclude null IDs/duplicate synced rows. DEFAULT |
-| New Member Records This Month | Count unique m_ID where m_Created falls in the current calendar month. | CORE: m_ID, m_Created | Record-created metric, NOT confirmed membership joins. DEFAULT |
-| New Member Records This Year | Count unique m_ID created since Jan 1 of the current year. | CORE: m_ID, m_Created | Record-created metric. Clearly label as new records. |
-| Members With Email | Count distinct m_ID with usable nonblank mi_Email. | CORE: m_ID, mi_Email | Ignore empty, null, NONE, and whitespace; no validation/verification claim. DEFAULT |
-| Members With Phone | Count distinct m_ID with usable nonblank mi_PrimaryPhone. | CORE: m_ID, mi_PrimaryPhone | Phone present, NOT verified. DEFAULT |
-| Membership-Eligible Members | Count distinct m_ID where mt_CountsForMembership = Yes (normalize boolean/string). | CORE: m_ID, mt_CountsForMembership | Not an Active Members metric. |
-| Members in Selected Branch | Count distinct m_ID with u_HomeBranch = administrator-selected existing branch. | CORE: m_ID, u_HomeBranch | Requires branch selection parameter; do not create a separate static KPI for each branch. |
-| Members in Selected Membership Type | Count distinct m_ID with mt_Name = selected existing membership type. | CORE: m_ID, mt_Name | Requires type selection parameter. |
-| Members in Selected State | Count distinct m_ID where normalized mi_HomeState matches selected state. | CORE: m_ID, mi_HomeState | Requires state parameter; distinguish blank from unknown. |
+| KPI (UI label)                      | Definition and calculation                                                         | Exact source mapping               | Conditions / validation                                                                   |
+| ----------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| Total Members                       | COUNT(DISTINCT m_ID) across included CORE member records.                          | CORE: m_ID                         | Count unique IDs; exclude null IDs/duplicate synced rows. DEFAULT                         |
+| New Member Records This Month       | Count unique m_ID where m_Created falls in the current calendar month.             | CORE: m_ID, m_Created              | Record-created metric, NOT confirmed membership joins. DEFAULT                            |
+| New Member Records This Year        | Count unique m_ID created since Jan 1 of the current year.                         | CORE: m_ID, m_Created              | Record-created metric. Clearly label as new records.                                      |
+| Members With Email                  | Count distinct m_ID with usable nonblank mi_Email.                                 | CORE: m_ID, mi_Email               | Ignore empty, null, NONE, and whitespace; no validation/verification claim. DEFAULT       |
+| Members With Phone                  | Count distinct m_ID with usable nonblank mi_PrimaryPhone.                          | CORE: m_ID, mi_PrimaryPhone        | Phone present, NOT verified. DEFAULT                                                      |
+| Membership-Eligible Members         | Count distinct m_ID where mt_CountsForMembership = Yes (normalize boolean/string). | CORE: m_ID, mt_CountsForMembership | Not an Active Members metric.                                                             |
+| Members in Selected Branch          | Count distinct m_ID with u_HomeBranch = administrator-selected existing branch.    | CORE: m_ID, u_HomeBranch           | Requires branch selection parameter; do not create a separate static KPI for each branch. |
+| Members in Selected Membership Type | Count distinct m_ID with mt_Name = selected existing membership type.              | CORE: m_ID, mt_Name                | Requires type selection parameter.                                                        |
+| Members in Selected State           | Count distinct m_ID where normalized mi_HomeState matches selected state.          | CORE: m_ID, mi_HomeState           | Requires state parameter; distinguish blank from unknown.                                 |
 
 ### DM-A05 — Donors KPI configuration – approved Jira baseline
 
@@ -264,18 +264,18 @@ flowchart TD
 
 **Original approved KPI reference catalog**
 
-| KPI (UI label) | Definition and calculation | Exact source mapping | Conditions / validation |
-| --- | --- | --- | --- |
-| Total Donors | Count DISTINCT mapped member IDs with genuine DonorPerfect giving relationship (gifts > 0 or validated gift_total > 0). | CORE: m_ID; DonorPerfect: donor_id, gifts, gift_total; existing mapping | DEFAULT. Never count duplicate source rows; must be subset of members. |
-| Active Donors (Trailing 12 Months) | Count distinct donors whose last_contrib_date is on/after the beginning of the prior 12-month window, through as-of date. | DonorPerfect: donor_id, last_contrib_date; CORE mapping | DEFAULT. Proposed business definition, not native donor status. Exclude future/invalid dates. |
-| Inactive Donors (No Gift in 12 Months) | Count donors with a known last_contrib_date older than 12 months. | DonorPerfect: donor_id, last_contrib_date | Unknown dates separately categorized, not assumed inactive. |
-| Lifetime Giving | SUM(gift_total) across distinct linked donors, with canonical source totals. | DonorPerfect: donor_id, gift_total | DEFAULT. Currency unit and refund/adjustment rules should be confirmed. |
-| Total Gifts | SUM(gifts) across distinct linked donors. | DonorPerfect: donor_id, gifts | Count number of gifts, not number of donors. |
-| Average Gift Amount | SUM(gift_total) / SUM(gifts) over donor population where denominator > 0. | DonorPerfect: gift_total, gifts | Weighted across gifts; do NOT AVG(avg_amt). Display N/A when no gifts. |
-| Donors Who Gave This Calendar Year | COUNT DISTINCT donor_id where cytd > 0 for currently active reporting calendar. | DonorPerfect: donor_id, cytd | Requires confirmation the cytd field is refreshed for current year. |
-| Repeat Donors | COUNT DISTINCT donor_id where gifts > 1. | DonorPerfect: donor_id, gifts | Two or more gifts historically; not year-over-year retention. |
-| High-Capacity Donors | Count donors with mapped iWave capacityValue >= admin-set currency threshold. | iWave: mostRecentScore.scoreDetails.capacityValue; existing mapping | Optional enrichment KPI. Requires threshold, currency harmonization and score freshness. |
-| Donors With iWave Score | Count distinct donors with a valid mapped mostRecentScore.score. | iWave: mostRecentScore.score; CORE/DP mapping | Counts coverage, not predicted donation likelihood. |
+| KPI (UI label)                         | Definition and calculation                                                                                                | Exact source mapping                                                    | Conditions / validation                                                                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Total Donors                           | Count DISTINCT mapped member IDs with genuine DonorPerfect giving relationship (gifts > 0 or validated gift_total > 0).   | CORE: m_ID; DonorPerfect: donor_id, gifts, gift_total; existing mapping | DEFAULT. Never count duplicate source rows; must be subset of members.                        |
+| Active Donors (Trailing 12 Months)     | Count distinct donors whose last_contrib_date is on/after the beginning of the prior 12-month window, through as-of date. | DonorPerfect: donor_id, last_contrib_date; CORE mapping                 | DEFAULT. Proposed business definition, not native donor status. Exclude future/invalid dates. |
+| Inactive Donors (No Gift in 12 Months) | Count donors with a known last_contrib_date older than 12 months.                                                         | DonorPerfect: donor_id, last_contrib_date                               | Unknown dates separately categorized, not assumed inactive.                                   |
+| Lifetime Giving                        | SUM(gift_total) across distinct linked donors, with canonical source totals.                                              | DonorPerfect: donor_id, gift_total                                      | DEFAULT. Currency unit and refund/adjustment rules should be confirmed.                       |
+| Total Gifts                            | SUM(gifts) across distinct linked donors.                                                                                 | DonorPerfect: donor_id, gifts                                           | Count number of gifts, not number of donors.                                                  |
+| Average Gift Amount                    | SUM(gift_total) / SUM(gifts) over donor population where denominator > 0.                                                 | DonorPerfect: gift_total, gifts                                         | Weighted across gifts; do NOT AVG(avg_amt). Display N/A when no gifts.                        |
+| Donors Who Gave This Calendar Year     | COUNT DISTINCT donor_id where cytd > 0 for currently active reporting calendar.                                           | DonorPerfect: donor_id, cytd                                            | Requires confirmation the cytd field is refreshed for current year.                           |
+| Repeat Donors                          | COUNT DISTINCT donor_id where gifts > 1.                                                                                  | DonorPerfect: donor_id, gifts                                           | Two or more gifts historically; not year-over-year retention.                                 |
+| High-Capacity Donors                   | Count donors with mapped iWave capacityValue >= admin-set currency threshold.                                             | iWave: mostRecentScore.scoreDetails.capacityValue; existing mapping     | Optional enrichment KPI. Requires threshold, currency harmonization and score freshness.      |
+| Donors With iWave Score                | Count distinct donors with a valid mapped mostRecentScore.score.                                                          | iWave: mostRecentScore.score; CORE/DP mapping                           | Counts coverage, not predicted donation likelihood.                                           |
 
 ### DM-A06 — Members advanced column selection – approved Jira baseline
 
@@ -319,21 +319,21 @@ flowchart TD
 
 **Original source field inventory (1)**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| First Name | m_FirstName | Core | Default • legal/given name |
-| Last Name | m_LastName | Core | Default • family name |
-| Email Address | mi_Email | Core | Default • contact; NONE/blank → — |
-| Primary Phone | mi_PrimaryPhone | Core | Default • contact; blank → — |
-| Membership Type | mt_Name | Core | Default • membership category, e.g., Family |
-| Home Branch | u_HomeBranch | Core | Default • organizational branch |
-| City | mi_HomeCity | Core | Optional • geographic grouping |
-| State | mi_HomeState | Core | Optional • location |
-| ZIP Code | mi_HomeZip | Core | Optional • geography |
-| Age | m_Age | Core | Optional, restricted • age supplied by CORE; review relevance |
-| Member ID | m_ID | Core | Optional • member identification |
-| CORE Record Created | m_Created | Core | Optional • NOT assumed to be join date |
-| Counts Toward Membership | mt_CountsForMembership | Core | Optional • eligibility flag, NOT active-status proof |
+| UI Label                 | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                                     |
+| ------------------------ | --------------------------- | ------ | ------------------------------------------------------------- |
+| First Name               | m_FirstName                 | Core   | Default • legal/given name                                    |
+| Last Name                | m_LastName                  | Core   | Default • family name                                         |
+| Email Address            | mi_Email                    | Core   | Default • contact; NONE/blank → —                             |
+| Primary Phone            | mi_PrimaryPhone             | Core   | Default • contact; blank → —                                  |
+| Membership Type          | mt_Name                     | Core   | Default • membership category, e.g., Family                   |
+| Home Branch              | u_HomeBranch                | Core   | Default • organizational branch                               |
+| City                     | mi_HomeCity                 | Core   | Optional • geographic grouping                                |
+| State                    | mi_HomeState                | Core   | Optional • location                                           |
+| ZIP Code                 | mi_HomeZip                  | Core   | Optional • geography                                          |
+| Age                      | m_Age                       | Core   | Optional, restricted • age supplied by CORE; review relevance |
+| Member ID                | m_ID                        | Core   | Optional • member identification                              |
+| CORE Record Created      | m_Created                   | Core   | Optional • NOT assumed to be join date                        |
+| Counts Toward Membership | mt_CountsForMembership      | Core   | Optional • eligibility flag, NOT active-status proof          |
 
 ### DM-A07 — Donors advanced column selection – approved Jira baseline
 
@@ -376,53 +376,53 @@ flowchart TD
 
 **Original source field inventory (2)**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| First Name | m_FirstName | Core | Default • legal/given name |
-| Last Name | m_LastName | Core | Default • family name |
-| Email Address | mi_Email | Core | Default • contact; NONE/blank → — |
-| Primary Phone | mi_PrimaryPhone | Core | Default • contact; blank → — |
-| Membership Type | mt_Name | Core | Default • membership category, e.g., Family |
-| Home Branch | u_HomeBranch | Core | Default • organizational branch |
-| City | mi_HomeCity | Core | Optional • geographic grouping |
-| State | mi_HomeState | Core | Optional • location |
-| ZIP Code | mi_HomeZip | Core | Optional • geography |
-| Age | m_Age | Core | Optional, restricted • age supplied by CORE; review relevance |
-| Member ID | m_ID | Core | Optional • member identification |
-| CORE Record Created | m_Created | Core | Optional • NOT assumed to be join date |
-| Counts Toward Membership | mt_CountsForMembership | Core | Optional • eligibility flag, NOT active-status proof |
+| UI Label                 | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                                     |
+| ------------------------ | --------------------------- | ------ | ------------------------------------------------------------- |
+| First Name               | m_FirstName                 | Core   | Default • legal/given name                                    |
+| Last Name                | m_LastName                  | Core   | Default • family name                                         |
+| Email Address            | mi_Email                    | Core   | Default • contact; NONE/blank → —                             |
+| Primary Phone            | mi_PrimaryPhone             | Core   | Default • contact; blank → —                                  |
+| Membership Type          | mt_Name                     | Core   | Default • membership category, e.g., Family                   |
+| Home Branch              | u_HomeBranch                | Core   | Default • organizational branch                               |
+| City                     | mi_HomeCity                 | Core   | Optional • geographic grouping                                |
+| State                    | mi_HomeState                | Core   | Optional • location                                           |
+| ZIP Code                 | mi_HomeZip                  | Core   | Optional • geography                                          |
+| Age                      | m_Age                       | Core   | Optional, restricted • age supplied by CORE; review relevance |
+| Member ID                | m_ID                        | Core   | Optional • member identification                              |
+| CORE Record Created      | m_Created                   | Core   | Optional • NOT assumed to be join date                        |
+| Counts Toward Membership | mt_CountsForMembership      | Core   | Optional • eligibility flag, NOT active-status proof          |
 
 **Original source field inventory (3)**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Lifetime Giving | gift_total | Donor | Default • cumulative contributions |
-| Total Gifts | gifts | Donor | Default • count of gifts |
-| Last Gift Date | last_contrib_date | Donor | Default • recency |
-| Last Gift Amount | last_contrib_amt | Donor | Default • amount of last contribution |
-| Average Gift | avg_amt | Donor | Optional • average contribution value |
-| Largest Gift | max_amt | Donor | Optional • highest recorded gift |
-| Largest Gift Date | max_date | Donor | Optional • date of highest gift |
-| First Gift Date | initial_gift_date | Donor | Optional • initial contribution date |
-| Years Donated | yrs_donated | Donor | Optional • number of years with giving |
-| Current Calendar-Year Giving | cytd | Donor | Optional • current calendar-year giving |
-| Previous Calendar-Year Giving | ly_cytd | Donor | Optional • previous calendar-year giving |
+| UI Label                      | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                |
+| ----------------------------- | --------------------------- | ------ | ---------------------------------------- |
+| Lifetime Giving               | gift_total                  | Donor  | Default • cumulative contributions       |
+| Total Gifts                   | gifts                       | Donor  | Default • count of gifts                 |
+| Last Gift Date                | last_contrib_date           | Donor  | Default • recency                        |
+| Last Gift Amount              | last_contrib_amt            | Donor  | Default • amount of last contribution    |
+| Average Gift                  | avg_amt                     | Donor  | Optional • average contribution value    |
+| Largest Gift                  | max_amt                     | Donor  | Optional • highest recorded gift         |
+| Largest Gift Date             | max_date                    | Donor  | Optional • date of highest gift          |
+| First Gift Date               | initial_gift_date           | Donor  | Optional • initial contribution date     |
+| Years Donated                 | yrs_donated                 | Donor  | Optional • number of years with giving   |
+| Current Calendar-Year Giving  | cytd                        | Donor  | Optional • current calendar-year giving  |
+| Previous Calendar-Year Giving | ly_cytd                     | Donor  | Optional • previous calendar-year giving |
 
 **Original source field inventory (4)**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Overall iWave Score | mostRecentScore.score | iwave | Optional • sourced composite score |
-| Affinity Score | mostRecentScore.scoreDetails.affinityScore | iwave | Default • supplied affinity score, not percentage |
-| Propensity Score | mostRecentScore.scoreDetails.propensityScore | iwave | Default • supplied propensity score, not percentage |
-| Capacity Score | mostRecentScore.scoreDetails.capacityScore | iwave | Default • rating, distinct from money value |
-| Estimated Giving Capacity | mostRecentScore.scoreDetails.capacityValue | iwave | Default • capacity estimate, NOT actual donations |
-| Capacity Range (Low) | mostRecentScore.scoreDetails.capacityRangeLow | iwave | Optional • estimate lower bound |
-| Capacity Range (High) | mostRecentScore.scoreDetails.capacityRangeHigh | iwave | Optional • estimate upper bound |
-| Planned Giving Score | mostRecentScore.plannedGivingDetails.score | iwave | Optional • planning insight |
-| Engagement Style | mostRecentScore.analytics.engagement | iwave | Optional • proposed engagement mode |
-| Cultivation Style | mostRecentScore.analytics.cultivation | iwave | Optional • suggested cultivation approach |
-| Score Updated On | mostRecentScore.additionalData.scoredAt | iwave | Optional • helps interpret stale scores |
+| UI Label                  | Exact Excel Field / Mapping                    | Source | Default / Usage & Meaning                           |
+| ------------------------- | ---------------------------------------------- | ------ | --------------------------------------------------- |
+| Overall iWave Score       | mostRecentScore.score                          | iwave  | Optional • sourced composite score                  |
+| Affinity Score            | mostRecentScore.scoreDetails.affinityScore     | iwave  | Default • supplied affinity score, not percentage   |
+| Propensity Score          | mostRecentScore.scoreDetails.propensityScore   | iwave  | Default • supplied propensity score, not percentage |
+| Capacity Score            | mostRecentScore.scoreDetails.capacityScore     | iwave  | Default • rating, distinct from money value         |
+| Estimated Giving Capacity | mostRecentScore.scoreDetails.capacityValue     | iwave  | Default • capacity estimate, NOT actual donations   |
+| Capacity Range (Low)      | mostRecentScore.scoreDetails.capacityRangeLow  | iwave  | Optional • estimate lower bound                     |
+| Capacity Range (High)     | mostRecentScore.scoreDetails.capacityRangeHigh | iwave  | Optional • estimate upper bound                     |
+| Planned Giving Score      | mostRecentScore.plannedGivingDetails.score     | iwave  | Optional • planning insight                         |
+| Engagement Style          | mostRecentScore.analytics.engagement           | iwave  | Optional • proposed engagement mode                 |
+| Cultivation Style         | mostRecentScore.analytics.cultivation          | iwave  | Optional • suggested cultivation approach           |
+| Score Updated On          | mostRecentScore.additionalData.scoredAt        | iwave  | Optional • helps interpret stale scores             |
 
 ### DM-A08 — Unified Constituent Profile – approved Jira baseline
 
@@ -465,109 +465,109 @@ flowchart TD
 
 **Approved profile source mapping, reference table 5**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Full Name | m_FirstName + m_LastName | Core | Primary heading; display combined name |
-| Membership Type | mt_Name | Core | Compact subtitle/badge |
-| Email | mi_Email | Core | Header contact if present |
-| Primary Phone | mi_PrimaryPhone | Core | Header contact if present |
-| City / State | mi_HomeCity + mi_HomeState | Core | Compact header location |
+| UI Label        | Exact Excel Field / Mapping | Source | Default / Usage & Meaning              |
+| --------------- | --------------------------- | ------ | -------------------------------------- |
+| Full Name       | m_FirstName + m_LastName    | Core   | Primary heading; display combined name |
+| Membership Type | mt_Name                     | Core   | Compact subtitle/badge                 |
+| Email           | mi_Email                    | Core   | Header contact if present              |
+| Primary Phone   | mi_PrimaryPhone             | Core   | Header contact if present              |
+| City / State    | mi_HomeCity + mi_HomeState  | Core   | Compact header location                |
 
 **Approved profile source mapping, reference table 6**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Member ID | m_ID | Core | Common membership identifier |
-| Membership Type | mt_Name | Core | Actual CORE membership category |
-| Home Branch | u_HomeBranch | Core | Branch affiliation |
-| Counts Toward Membership | mt_CountsForMembership | Core | Eligibility flag, not current membership status |
-| CORE Record Created | m_Created | Core | Record timestamp; not labeled Member Since |
-| Unit ID | m_UnitID | Core | Collapsed system information only |
+| UI Label                 | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                       |
+| ------------------------ | --------------------------- | ------ | ----------------------------------------------- |
+| Member ID                | m_ID                        | Core   | Common membership identifier                    |
+| Membership Type          | mt_Name                     | Core   | Actual CORE membership category                 |
+| Home Branch              | u_HomeBranch                | Core   | Branch affiliation                              |
+| Counts Toward Membership | mt_CountsForMembership      | Core   | Eligibility flag, not current membership status |
+| CORE Record Created      | m_Created                   | Core   | Record timestamp; not labeled Member Since      |
+| Unit ID                  | m_UnitID                    | Core   | Collapsed system information only               |
 
 **Approved profile source mapping, reference table 7**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| First Name | m_FirstName | Core | Personal information |
-| Last Name | m_LastName | Core | Personal information |
-| Age | m_Age | Core | Optional, access-controlled personal value |
-| Date of Birth | m_Birthdate | Core | Restricted; do not show by default |
-| Email | mi_Email | Core | Contact |
-| Primary Phone | mi_PrimaryPhone | Core | Contact |
-| Street Address | mi_HomeAddress | Core | Address |
-| City | mi_HomeCity | Core | Address |
-| State | mi_HomeState | Core | Address |
-| ZIP Code | mi_HomeZip | Core | Address |
+| UI Label       | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                  |
+| -------------- | --------------------------- | ------ | ------------------------------------------ |
+| First Name     | m_FirstName                 | Core   | Personal information                       |
+| Last Name      | m_LastName                  | Core   | Personal information                       |
+| Age            | m_Age                       | Core   | Optional, access-controlled personal value |
+| Date of Birth  | m_Birthdate                 | Core   | Restricted; do not show by default         |
+| Email          | mi_Email                    | Core   | Contact                                    |
+| Primary Phone  | mi_PrimaryPhone             | Core   | Contact                                    |
+| Street Address | mi_HomeAddress              | Core   | Address                                    |
+| City           | mi_HomeCity                 | Core   | Address                                    |
+| State          | mi_HomeState                | Core   | Address                                    |
+| ZIP Code       | mi_HomeZip                  | Core   | Address                                    |
 
 **Approved profile source mapping, reference table 8**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Full Name | m_FirstName + m_LastName | Core | Same header as member-only profile |
-| Membership Type | mt_Name | Core | Same membership card |
-| Member ID | m_ID | Core | Same identifier |
-| Home Branch | u_HomeBranch | Core | Same branch detail |
-| CORE Record Created | m_Created | Core | Same record metadata |
-| Email | mi_Email | Core | Same contact detail; mapped donor email may be available for source review |
-| Primary Phone | mi_PrimaryPhone | Core | Same contact detail |
-| Age | m_Age | Core | Optional authorized view |
-| Street Address | mi_HomeAddress | Core | Same address section |
-| City | mi_HomeCity | Core | Same address section |
-| State | mi_HomeState | Core | Same address section |
-| ZIP Code | mi_HomeZip | Core | Same address section |
+| UI Label            | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                                                  |
+| ------------------- | --------------------------- | ------ | -------------------------------------------------------------------------- |
+| Full Name           | m_FirstName + m_LastName    | Core   | Same header as member-only profile                                         |
+| Membership Type     | mt_Name                     | Core   | Same membership card                                                       |
+| Member ID           | m_ID                        | Core   | Same identifier                                                            |
+| Home Branch         | u_HomeBranch                | Core   | Same branch detail                                                         |
+| CORE Record Created | m_Created                   | Core   | Same record metadata                                                       |
+| Email               | mi_Email                    | Core   | Same contact detail; mapped donor email may be available for source review |
+| Primary Phone       | mi_PrimaryPhone             | Core   | Same contact detail                                                        |
+| Age                 | m_Age                       | Core   | Optional authorized view                                                   |
+| Street Address      | mi_HomeAddress              | Core   | Same address section                                                       |
+| City                | mi_HomeCity                 | Core   | Same address section                                                       |
+| State               | mi_HomeState                | Core   | Same address section                                                       |
+| ZIP Code            | mi_HomeZip                  | Core   | Same address section                                                       |
 
 **Approved profile source mapping, reference table 9**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Lifetime Giving | gift_total | Donor | Default • cumulative contributions |
-| Total Gifts | gifts | Donor | Default • count of gifts |
-| Last Gift Date | last_contrib_date | Donor | Default • recency |
-| Last Gift Amount | last_contrib_amt | Donor | Default • amount of last contribution |
-| Average Gift | avg_amt | Donor | Optional • average contribution value |
-| Largest Gift | max_amt | Donor | Optional • highest recorded gift |
-| Largest Gift Date | max_date | Donor | Optional • date of highest gift |
-| First Gift Date | initial_gift_date | Donor | Optional • initial contribution date |
-| Years Donated | yrs_donated | Donor | Optional • number of years with giving |
-| Current Calendar-Year Giving | cytd | Donor | Optional • current calendar-year giving |
-| Previous Calendar-Year Giving | ly_cytd | Donor | Optional • previous calendar-year giving |
+| UI Label                      | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                |
+| ----------------------------- | --------------------------- | ------ | ---------------------------------------- |
+| Lifetime Giving               | gift_total                  | Donor  | Default • cumulative contributions       |
+| Total Gifts                   | gifts                       | Donor  | Default • count of gifts                 |
+| Last Gift Date                | last_contrib_date           | Donor  | Default • recency                        |
+| Last Gift Amount              | last_contrib_amt            | Donor  | Default • amount of last contribution    |
+| Average Gift                  | avg_amt                     | Donor  | Optional • average contribution value    |
+| Largest Gift                  | max_amt                     | Donor  | Optional • highest recorded gift         |
+| Largest Gift Date             | max_date                    | Donor  | Optional • date of highest gift          |
+| First Gift Date               | initial_gift_date           | Donor  | Optional • initial contribution date     |
+| Years Donated                 | yrs_donated                 | Donor  | Optional • number of years with giving   |
+| Current Calendar-Year Giving  | cytd                        | Donor  | Optional • current calendar-year giving  |
+| Previous Calendar-Year Giving | ly_cytd                     | Donor  | Optional • previous calendar-year giving |
 
 **Approved profile source mapping, reference table 10**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Overall iWave Score | mostRecentScore.score | iwave | Optional • sourced composite score |
-| Affinity Score | mostRecentScore.scoreDetails.affinityScore | iwave | Default • supplied affinity score, not percentage |
-| Propensity Score | mostRecentScore.scoreDetails.propensityScore | iwave | Default • supplied propensity score, not percentage |
-| Capacity Score | mostRecentScore.scoreDetails.capacityScore | iwave | Default • rating, distinct from money value |
-| Estimated Giving Capacity | mostRecentScore.scoreDetails.capacityValue | iwave | Default • capacity estimate, NOT actual donations |
-| Capacity Range (Low) | mostRecentScore.scoreDetails.capacityRangeLow | iwave | Optional • estimate lower bound |
-| Capacity Range (High) | mostRecentScore.scoreDetails.capacityRangeHigh | iwave | Optional • estimate upper bound |
-| Planned Giving Score | mostRecentScore.plannedGivingDetails.score | iwave | Optional • planning insight |
-| Engagement Style | mostRecentScore.analytics.engagement | iwave | Optional • proposed engagement mode |
-| Cultivation Style | mostRecentScore.analytics.cultivation | iwave | Optional • suggested cultivation approach |
-| Score Updated On | mostRecentScore.additionalData.scoredAt | iwave | Optional • helps interpret stale scores |
+| UI Label                  | Exact Excel Field / Mapping                    | Source | Default / Usage & Meaning                           |
+| ------------------------- | ---------------------------------------------- | ------ | --------------------------------------------------- |
+| Overall iWave Score       | mostRecentScore.score                          | iwave  | Optional • sourced composite score                  |
+| Affinity Score            | mostRecentScore.scoreDetails.affinityScore     | iwave  | Default • supplied affinity score, not percentage   |
+| Propensity Score          | mostRecentScore.scoreDetails.propensityScore   | iwave  | Default • supplied propensity score, not percentage |
+| Capacity Score            | mostRecentScore.scoreDetails.capacityScore     | iwave  | Default • rating, distinct from money value         |
+| Estimated Giving Capacity | mostRecentScore.scoreDetails.capacityValue     | iwave  | Default • capacity estimate, NOT actual donations   |
+| Capacity Range (Low)      | mostRecentScore.scoreDetails.capacityRangeLow  | iwave  | Optional • estimate lower bound                     |
+| Capacity Range (High)     | mostRecentScore.scoreDetails.capacityRangeHigh | iwave  | Optional • estimate upper bound                     |
+| Planned Giving Score      | mostRecentScore.plannedGivingDetails.score     | iwave  | Optional • planning insight                         |
+| Engagement Style          | mostRecentScore.analytics.engagement           | iwave  | Optional • proposed engagement mode                 |
+| Cultivation Style         | mostRecentScore.analytics.cultivation          | iwave  | Optional • suggested cultivation approach           |
+| Score Updated On          | mostRecentScore.additionalData.scoredAt        | iwave  | Optional • helps interpret stale scores             |
 
 **Approved profile source mapping, reference table 11**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| Employer / Organization | mostRecentScore.additionalData.companyAffiliation.companyName | iwave | Optional research context; verify currency |
-| Professional Title | mostRecentScore.additionalData.companyAffiliation.corporateTitle | iwave | Optional research context |
-| Foundation Board Flag | mostRecentScore.additionalData.foundations.public.isFoundationBoardMember | iwave | Only if verified / permissioned |
-| Foundation Name | mostRecentScore.additionalData.foundations.public.mostRecentFoundationName | iwave | Source-reported association; not partnership proof |
+| UI Label                | Exact Excel Field / Mapping                                                | Source | Default / Usage & Meaning                          |
+| ----------------------- | -------------------------------------------------------------------------- | ------ | -------------------------------------------------- |
+| Employer / Organization | mostRecentScore.additionalData.companyAffiliation.companyName              | iwave  | Optional research context; verify currency         |
+| Professional Title      | mostRecentScore.additionalData.companyAffiliation.corporateTitle           | iwave  | Optional research context                          |
+| Foundation Board Flag   | mostRecentScore.additionalData.foundations.public.isFoundationBoardMember  | iwave  | Only if verified / permissioned                    |
+| Foundation Name         | mostRecentScore.additionalData.foundations.public.mostRecentFoundationName | iwave  | Source-reported association; not partnership proof |
 
 **Approved profile source mapping, reference table 12**
 
-| UI Label | Exact Excel Field / Mapping | Source | Default / Usage & Meaning |
-| --- | --- | --- | --- |
-| DonorPerfect Donor ID | donor_id | Donor | System identification only |
-| DonorPerfect Email | email | Donor | Show source value only if needed to reconcile conflict |
-| DonorPerfect Mobile | mobile_phone | Donor | Do not mislabel home phone as mobile |
-| DonorPerfect Home Phone | home_phone | Donor | Source contact fallback when permitted |
-| Email Opt-Out | no_email | Donor | Communication preference, not donor status |
-| Mail Opt-Out | nomail | Donor | Communication preference, not membership status |
-| Last DP Modified | modified_date | Donor | Source metadata; not latest donation timestamp |
+| UI Label                | Exact Excel Field / Mapping | Source | Default / Usage & Meaning                              |
+| ----------------------- | --------------------------- | ------ | ------------------------------------------------------ |
+| DonorPerfect Donor ID   | donor_id                    | Donor  | System identification only                             |
+| DonorPerfect Email      | email                       | Donor  | Show source value only if needed to reconcile conflict |
+| DonorPerfect Mobile     | mobile_phone                | Donor  | Do not mislabel home phone as mobile                   |
+| DonorPerfect Home Phone | home_phone                  | Donor  | Source contact fallback when permitted                 |
+| Email Opt-Out           | no_email                    | Donor  | Communication preference, not donor status             |
+| Mail Opt-Out            | nomail                      | Donor  | Communication preference, not membership status        |
+| Last DP Modified        | modified_date               | Donor  | Source metadata; not latest donation timestamp         |
 
 ### DM-A09 — Global Search navigation – approved Jira baseline
 
@@ -1237,7 +1237,6 @@ flowchart TD
 
 **Future-only gate:** A dedicated iWave/donor-strength decision document is required before defining native donor scoring, propensity/affinity/capacity calculations or score categories. Current iWave data remains source-defined.
 
-
 ## Native template-based import — To-Be feature stories
 
 These feature stories consolidate previously approved page-level Member and Donor import requirements (MEM-F-025–032; DON-F-032–034, DON-F-043–050), plus the requested Segment import addition. Importing an AiXPurpose template is not equivalent to integration sync.
@@ -1441,18 +1440,16 @@ flowchart TD
 - Verify approved duplicate/update/partial-processing rules; imported historical giving must not be misclassified as newly collected gateway payments.
 - Confirm refresh/recalculation and unresolved dynamic-segment manual override precedence.
 
-
-| ID | Open decision / verification | Treatment |
-|---|---|---|
-| DM-OD-01 | Dynamic segment refresh and update schedule | Verify with Development; retain observed behavior |
-| DM-OD-02 | Static segment actual membership semantics | QA verification, no presumed algorithm |
-| DM-OD-03 | Manual additions/exclusions versus dynamic recomputation precedence | Explicitly OPEN; not assumed persistent or overwritten |
-| DM-OD-04 | Prospect list eligibility, source linkage and category thresholds | Development verification; no scoring changes now |
-| DM-OD-05 | iWave propensity/affinity/capacity source fields, quality and freshness | Source-backed only; new scoring deferred |
-| DM-OD-06 | Existing Jira deployment and QA status for KPI, columns, profile and Global Search | Track against current tickets |
-| DM-OD-07 | Native Donor creation qualification and de-duplication | Development confirmation; must link to Member |
-| DM-OD-08 | Supported segment AND/OR fields, operator matrix and possible nested groups | Confirm feasible initial builder; do not assume nested groups |
-
+| ID       | Open decision / verification                                                       | Treatment                                                     |
+| -------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| DM-OD-01 | Dynamic segment refresh and update schedule                                        | Verify with Development; retain observed behavior             |
+| DM-OD-02 | Static segment actual membership semantics                                         | QA verification, no presumed algorithm                        |
+| DM-OD-03 | Manual additions/exclusions versus dynamic recomputation precedence                | Explicitly OPEN; not assumed persistent or overwritten        |
+| DM-OD-04 | Prospect list eligibility, source linkage and category thresholds                  | Development verification; no scoring changes now              |
+| DM-OD-05 | iWave propensity/affinity/capacity source fields, quality and freshness            | Source-backed only; new scoring deferred                      |
+| DM-OD-06 | Existing Jira deployment and QA status for KPI, columns, profile and Global Search | Track against current tickets                                 |
+| DM-OD-07 | Native Donor creation qualification and de-duplication                             | Development confirmation; must link to Member                 |
+| DM-OD-08 | Supported segment AND/OR fields, operator matrix and possible nested groups        | Confirm feasible initial builder; do not assume nested groups |
 
 ## Original segment and prospecting screenshots
 
@@ -1463,7 +1460,6 @@ flowchart TD
 ![Original Donor Management screen 05](screenshots/donor_management_05.png)
 ![Original Donor Management screen 06](screenshots/donor_management_06.png)
 ![Original Donor Management screen 07](screenshots/donor_management_07.png)
-
 
 ### DM-T14 — Template import native matching, update and unmatched record reporting (UPDATED)
 

@@ -14,7 +14,7 @@
 - **Future candidate:** discussion only, not approved for implementation.
 - **Open decision:** formula, technical handoff, provider or feature behavior not decided; do not invent details.
 - **Source ownership:** all externally synchronized business records are read-only to Admin users within AiXPurpose; externally initiated API synchronisation may refresh them. Native AiXPurpose records are editable by Admins. There is currently no differentiated native role-permission model.
-- **Source filter:** a per-page dropdown within the existing Filters area, not a global Settings switch. Its choices are All Sources (default), AiXPurpose, External Sources (All), plus applicable tenant-connected source applications. It changes *listing visibility*, not record origins, stored data or reporting formulas.
+- **Source filter:** a per-page dropdown within the existing Filters area, not a global Settings switch. Its choices are All Sources (default), AiXPurpose, External Sources (All), plus applicable tenant-connected source applications. It changes _listing visibility_, not record origins, stored data or reporting formulas.
 
 ## 1. End-to-end workflow register
 
@@ -41,7 +41,6 @@ flowchart TD
     S3 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Campaign listing and four cards display; card values are tenant-scoped; undefined conversion calculation is recorded as an open decision.
 
 ### WF-02 — Campaign search, filters and statuses (CC-002)
@@ -64,7 +63,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Search locates matching campaigns; filter selection limits records; Reset restores default filters.
 
@@ -93,7 +91,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Admin completes non-AI fields and saves; validation prevents missing mandatory inputs; created campaign is tagged AiXPurpose.
 
 ### WF-04 — AI Campaign Generator control and fallback (CC-004)
@@ -116,7 +113,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** AI action is not presented as production-ready; QA records observed behavior; disposition is open.
 
@@ -143,7 +139,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Opening a row navigates to the matching campaign; tabs display only associated data; empty/error states are visible.
 
 ### WF-06 — Campaign editing and source protection (CC-006)
@@ -169,7 +164,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Admin edits native campaign; external campaign shows no edit action; direct update call for external ID is rejected.
 
 ### WF-07 — Campaign donations and donor linkage (CC-007)
@@ -192,7 +186,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Only correctly linked donation rows appear; donor navigation resolves correctly; missing mapping does not invent relationships.
 
@@ -221,7 +214,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Admin selects one of two valid campaign audiences; recipients match chosen scope; Send/Schedule opens existing workflow.
 
 ### WF-09 — Campaign performance and calculation integrity (CC-009)
@@ -247,7 +239,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** UI retained; calculations flagged for confirmation; QA tests reconciled formulas once approved.
 
 ### WF-10 — Communication KPIs and list (CC-010)
@@ -271,7 +262,6 @@ flowchart TD
     S3 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Communication rows and KPIs load; empty state works; figures are not invented.
 
 ### WF-11 — Communication list search and filtering (CC-011)
@@ -294,7 +284,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Search returns matching communication rows; filters combine correctly; records open the correct details.
 
@@ -321,7 +310,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Admin can navigate steps, validate recipients/content, preview and complete supported email communication.
 
 ### WF-13 — Email Send Now (CC-013)
@@ -346,7 +334,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Admin sends valid email; success/failure state shown; sent content becomes read-only.
 
@@ -375,7 +362,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Admin schedules message; can view and edit pending schedule; cannot modify sent content.
 
 ### WF-15 — Communication details overview and delivery KPIs (CC-015)
@@ -398,7 +384,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Existing tabs and cards render; reconciled event totals only; no fabricated analytics values.
 
@@ -425,7 +410,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Status tabs filter recipients; pagination works; Export List downloads correct scoped rows when supported.
 
 ### WF-17 — Message preview and code view (CC-017)
@@ -448,7 +432,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Message subject, preview and code display; sent content cannot be updated.
 
@@ -475,7 +458,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Draft and scheduled edits save before dispatch; sent record edit action absent and write endpoint rejects modification.
 
 ### WF-19 — SMS operational delivery (CC-019)
@@ -500,7 +482,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Configured tenant sends SMS; validation handles missing number/provider; delivery failures surface without false success.
 
@@ -527,7 +508,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Configured channel dispatches supported message; invalid/unconfigured delivery blocked; show reliable status.
 
 ### WF-21 — Audience resolution and tenant consistency (CC-021)
@@ -553,7 +533,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Preview audience counts based on valid linkage; only current tenant recipients included; invalid/empty groups handled clearly.
 
 ### WF-22 — Template list, search and type filters (CC-022)
@@ -576,7 +555,6 @@ flowchart TD
     S2 --> S3
     S3 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Admin searches templates, applies type filters and opens the correct template.
 
@@ -603,7 +581,6 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** New template saves; native content updates persist; invalid required content blocked.
 
 ### WF-24 — Variables and Use in Communication (CC-024)
@@ -628,7 +605,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Existing template transfers to communication; supported variables substitute; missing data handled safely.
 
@@ -657,7 +633,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Admin uploads supported document, previews generated draft, edits subject/body, and explicitly saves a native email template; validation/errors visible.
 
 ### WF-26 — Automation listing and builder (CC-026)
@@ -682,7 +657,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** Admin opens automation list; configures supported steps; saves valid workflow definition.
 
@@ -711,7 +685,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Matching approved trigger starts workflow; wait delays following step; configured email sends; errors are not silently lost; SMS guarded until operational.
 
 ### WF-28 — Source dropdown and origin-aware record listing (CC-028)
@@ -739,7 +712,6 @@ flowchart TD
     S5 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Each source option returns expected tenant records; filter does not mutate data; source is visible in list/detail; native Edit and external View-only enforced in backend.
 
 ### WF-29 — Tenant isolation and source ownership (CC-029)
@@ -764,7 +736,6 @@ flowchart TD
     S3 --> S4
     S4 --> Z["Show result or explicit error"]
 ```
-
 
 **End condition:** No cross-tenant retrieval; native campaign edit succeeds; integrated update fails at API and UI; audit behavior as implemented is verified.
 
@@ -791,22 +762,21 @@ flowchart TD
     S4 --> Z["Show result or explicit error"]
 ```
 
-
 **End condition:** Export gives correct scoped rows, failures show errors, unavailable functionality does not show a dead button.
 
 ## 2. Workflow exception matrix
 
-| Condition | Expected outcome |
-| --- | --- |
-| Integrated campaign edit request | No edit UI; reject mutation on backend; allow fresh API sync |
-| Sent communication edit request | Read-only detail; reject changes |
-| Scheduled communication edit request | Permit edit only before dispatch; preserve scheduled workflow |
-| Unconfigured SMS/WhatsApp channel | Block delivery; show useful setup/validation state |
-| Unresolved audience mapping | Do not send to guessed recipients |
-| Unverified campaign KPI | Retain UI but do not assert unapproved derived formula |
-| Unsupported uploaded document | Reject with format/size guidance once supported types defined |
+| Condition                                 | Expected outcome                                                   |
+| ----------------------------------------- | ------------------------------------------------------------------ |
+| Integrated campaign edit request          | No edit UI; reject mutation on backend; allow fresh API sync       |
+| Sent communication edit request           | Read-only detail; reject changes                                   |
+| Scheduled communication edit request      | Permit edit only before dispatch; preserve scheduled workflow      |
+| Unconfigured SMS/WhatsApp channel         | Block delivery; show useful setup/validation state                 |
+| Unresolved audience mapping               | Do not send to guessed recipients                                  |
+| Unverified campaign KPI                   | Retain UI but do not assert unapproved derived formula             |
+| Unsupported uploaded document             | Reject with format/size guidance once supported types defined      |
 | Unknown automation trigger or failed step | Do not assume retries; surface error using approved runtime design |
-| Source dropdown selected | Update current list and combined filters, not cross-module state |
+| Source dropdown selected                  | Update current list and combined filters, not cross-module state   |
 
 ## 3. Source screenshot references
 
@@ -820,8 +790,6 @@ See [original screenshot folder](screenshots/) for the 25 embedded source images
 4. Approved Q1–Q8 answers and subsequent corrections: Admin-only, AI Generator not working, email send/schedule functional, SMS/WhatsApp To-Be, scheduled editable but sent immutable, document-to-template To-Be, automation execution To-Be, scheduling management already As-Is.
 
 Screenshots document reference UI, not validated runtime behavior.
-
-
 
 ## UPDATED v1.1 — Native structured import workflows (To-Be)
 

@@ -2,18 +2,16 @@
 
 > Business Requirements Document – Goals
 
-
 ## Document Control
 
-| Field | Value |
-|---|---|
-| Product | AiXPurpose Standalone (multi-tenant) |
-| Capability | Settings: Organization, Users & Roles, Communication, Payment, API Integration |
-| Version | 1.0 |
-| Status | Draft for Product, QA, Development and stakeholder review |
-| Authoritative evidence | `settings Module.docx` screenshots and description; user-approved Q1–Q8/C1–C6 decisions and final AiXIdentity clarification |
-| Documentation convention | Members/Donors BRD structure and revised Profile Jira-story pattern |
-
+| Field                    | Value                                                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Product                  | AiXPurpose Standalone (multi-tenant)                                                                                        |
+| Capability               | Settings: Organization, Users & Roles, Communication, Payment, API Integration                                              |
+| Version                  | 1.0                                                                                                                         |
+| Status                   | Draft for Product, QA, Development and stakeholder review                                                                   |
+| Authoritative evidence   | `settings Module.docx` screenshots and description; user-approved Q1–Q8/C1–C6 decisions and final AiXIdentity clarification |
+| Documentation convention | Members/Donors BRD structure and revised Profile Jira-story pattern                                                         |
 
 ## Overview
 
@@ -21,8 +19,8 @@
 
 **Authority rule:** AiXIdentity is authoritative for authentication/access, roles and permissions. AiXPurpose provides the Users & Roles view and the Admin/Manager Add User interface. The exact provisioning API, invitation activation, identity synchronization cadence and permitted Manager role-selection boundaries must be verified with Development/AiXIdentity, not assumed. Earlier notes call the identity source AiXHub; the user's latest clarification names AiXIdentity for access and permissions. Their interface/ownership relationship is an open architecture point, not an invented equivalence.
 
-
 ## Contents
+
 1. Purpose and business context
 2. As-Is baseline
 3. To-Be standalone goals
@@ -87,11 +85,10 @@ Existing client-specific Settings must remain available to independently configu
 
 - **SET-A-14 – Webhook and API documentation UI** (API): webhook endpoint listing, active status, event tags, Add Webhook, API Documentation link, security guidance. **QA:** Partially functional; QA records actual persistence, delivery and action support; no invented callback payload.
 
-
 ## 3. To-Be – standalone business objectives
 
 | Goal | Outcome | Feature / Workflow |
-|---|---|---|
+| ---- | ------- | ------------------ |
 
 | SET-GO-01 | Tenant-isolated organisation settings — organisation information stays separate across tenants | SET-P01 / SET-WF-01 |
 
@@ -121,7 +118,6 @@ Existing client-specific Settings must remain available to independently configu
 
 | SET-GO-11 | Operational payment gateway integration — supported donation payment operations can complete via verified gateways | SET-P13 / SET-WF-14 |
 
-
 ### Approved target-state overview
 
 ```mermaid
@@ -134,8 +130,8 @@ flowchart TD
 
 ## 4. Future scope – candidates, not release commitments
 
-| ID | Candidate | Intended business value / constraints |
-|---|---|---|
+| ID  | Candidate | Intended business value / constraints |
+| --- | --------- | ------------------------------------- |
 
 | SET-F01 | Organisation settings change history | administrator reviews important setting change records |
 
@@ -153,11 +149,10 @@ flowchart TD
 
 | SET-F08 | Organisation settings import/export | transfer approved setting fields under an authorised process, excluding secrets by default |
 
-
 ## 5. Business rules and constraints
 
 | Rule ID | Rule |
-|---|---|
+| ------- | ---- |
 
 | SET-BR-001 | Organisation settings and provider/API resources are tenant-isolated. |
 
@@ -191,7 +186,7 @@ flowchart TD
 ## 7. Risks, assumptions and decisions
 
 | Decision | Unresolved question / QA evidence needed |
-|---|---|
+| -------- | ---------------------------------------- |
 
 | SET-OD-001 | AiXPurpose Add User -> AiXIdentity/AiXHub provisioning handoff, invitation/activation states, duplicate handling and resulting role approval. |
 

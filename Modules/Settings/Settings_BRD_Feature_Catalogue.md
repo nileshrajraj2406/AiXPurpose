@@ -4,15 +4,14 @@
 
 ## Document Control
 
-| Field | Value |
-|---|---|
-| Product | AiXPurpose Standalone (multi-tenant) |
-| Capability | Settings: Organization, Users & Roles, Communication, Payment, API Integration |
-| Version | 1.0 |
-| Status | Draft for Product, QA, Development and stakeholder review |
-| Authoritative evidence | `settings Module.docx` screenshots and description; user-approved Q1–Q8/C1–C6 decisions and final AiXIdentity clarification |
-| Documentation convention | Members/Donors BRD structure and revised Profile Jira-story pattern |
-
+| Field                    | Value                                                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Product                  | AiXPurpose Standalone (multi-tenant)                                                                                        |
+| Capability               | Settings: Organization, Users & Roles, Communication, Payment, API Integration                                              |
+| Version                  | 1.0                                                                                                                         |
+| Status                   | Draft for Product, QA, Development and stakeholder review                                                                   |
+| Authoritative evidence   | `settings Module.docx` screenshots and description; user-approved Q1–Q8/C1–C6 decisions and final AiXIdentity clarification |
+| Documentation convention | Members/Donors BRD structure and revised Profile Jira-story pattern                                                         |
 
 ## Overview
 
@@ -20,8 +19,8 @@
 
 **Authority rule:** AiXIdentity is authoritative for authentication/access, roles and permissions. AiXPurpose provides the Users & Roles view and the Admin/Manager Add User interface. The exact provisioning API, invitation activation, identity synchronization cadence and permitted Manager role-selection boundaries must be verified with Development/AiXIdentity, not assumed. Earlier notes call the identity source AiXHub; the user's latest clarification names AiXIdentity for access and permissions. Their interface/ownership relationship is an open architecture point, not an invented equivalence.
 
-
 ## Contents
+
 1. Purpose and classification
 2. Feature inventory
 3. As-Is: QA/regression user stories
@@ -34,7 +33,7 @@
 ## 1. Purpose and classification
 
 | Classification | Required treatment |
-|---|---|
+| -------------- | ------------------ |
 
 | As-Is | Keep visible existing features, test actual behavior, raise defects when broken. |
 
@@ -45,7 +44,7 @@
 ## 2. Feature inventory
 
 | Class | IDs | Count |
-|---|---|---|
+| ----- | --- | ----- |
 
 | As-Is QA | SET-A-01 to SET-A-14 | 14 |
 
@@ -68,12 +67,14 @@
 **Business logic and workflow:** open organisation settings; inspect basic information; update permitted details; save. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** User can see existing fields and Save Organization Settings; QA confirms save persistence, field handling, and access restrictions.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Organization"] --> B{"Existing action available and authorised?"}
@@ -95,12 +96,14 @@ flowchart TD
 **Business logic and workflow:** open remaining organisation details; inspect/edit permitted fields; save. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA checks displayed and saved address, tax/registration, and mission data.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Organization"] --> B{"Existing action available and authorised?"}
@@ -122,12 +125,14 @@ flowchart TD
 **Business logic and workflow:** open Users & Roles; review the three summary values. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA verifies actual KPI meanings, values and AiXIdentity source mapping; screenshots do not establish calculations.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Users & Roles"] --> B{"Existing action available and authorised?"}
@@ -149,12 +154,14 @@ flowchart TD
 **Business logic and workflow:** load user directory; search/review available rows and permissions. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA checks identity source, pagination/search only if present, displayed role/status/last-login, and permissible actions.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Users & Roles"] --> B{"Existing action available and authorised?"}
@@ -176,12 +183,14 @@ flowchart TD
 **Business logic and workflow:** select Add User; observe current behaviour; record failed/unfinished action. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA records as existing UI gap; functional creation is a separately approved To-Be feature.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Users & Roles"] --> B{"Existing action available and authorised?"}
@@ -203,12 +212,14 @@ flowchart TD
 **Business logic and workflow:** view and configure email fields; test; save. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** Email is reported operational; QA verifies connection test and persistence without exposing password.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Existing action available and authorised?"}
@@ -230,12 +241,14 @@ flowchart TD
 **Business logic and workflow:** open SMS panel; edit provider values; review test/enable control. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** UI retained; operational SMS transmission not As-Is and must be built in To-Be.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Existing action available and authorised?"}
@@ -257,12 +270,14 @@ flowchart TD
 **Business logic and workflow:** open WhatsApp panel; edit provider values; save. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** UI retained; operational WhatsApp transmission not As-Is and must be built in To-Be.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Existing action available and authorised?"}
@@ -284,12 +299,14 @@ flowchart TD
 **Business logic and workflow:** change permitted settings; choose save; reopen. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA confirms which settings persist; operational behaviour assessed separately per provider.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Existing action available and authorised?"}
@@ -311,12 +328,14 @@ flowchart TD
 **Business logic and workflow:** open payment; inspect provider configurations; save settings. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** Configuration UI exists; successful external payment transaction is NOT verified.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Payment"] --> B{"Existing action available and authorised?"}
@@ -338,12 +357,14 @@ flowchart TD
 **Business logic and workflow:** inspect fundraising tool toggles; save settings. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA verifies tile availability, stored state and any actual integrations; no unverified processing claims.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Payment"] --> B{"Existing action available and authorised?"}
@@ -365,12 +386,14 @@ flowchart TD
 **Business logic and workflow:** modify a permitted provider configuration; save; reopen. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** QA verifies persistence, state and permission behaviour separately from operational payment integration.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open Payment"] --> B{"Existing action available and authorised?"}
@@ -392,12 +415,14 @@ flowchart TD
 **Business logic and workflow:** open keys; inspect listed scopes and operations; try supported actions. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** Partially functional; QA records working create/view/revoke/edit operations rather than assuming all.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open API"] --> B{"Existing action available and authorised?"}
@@ -419,12 +444,14 @@ flowchart TD
 **Business logic and workflow:** inspect webhook list, try allowed webhook actions and documentation link. Source supports the UI; operational claims require QA verification.
 
 **Acceptance criteria (As-Is verification):**
+
 1. **Given** authorised access, **when** the screen loads, **then** all stated fields and controls are present.
 2. **Given** the user performs the existing operation, **when** its result is checked, **then** QA records actual persistence/integration success or a reproducible defect.
 3. **Given** an unauthorised or wrong-tenant request, **when** the action is attempted, **then** QA verifies restrictions and records any failed control.
 4. **Specific QA focus:** Partially functional; QA records actual persistence, delivery and action support; no invented callback payload.
 
 **Existing / QA verification flow:**
+
 ```mermaid
 flowchart TD
     A["Open API"] --> B{"Existing action available and authorised?"}
@@ -444,6 +471,7 @@ flowchart TD
 **Business requirements / rules:** resolve tenant; load tenant settings; administrator edits; save to same tenant. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Organization, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Tenant A cannot view/change Tenant B data; verified values persist; missing context denies access.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -453,6 +481,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Organization"] --> B{"Tenant, role and input valid?"}
@@ -470,6 +499,7 @@ flowchart TD
 **Business requirements / rules:** authenticate role; open settings; check organisation admin privilege; allow edit or deny. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Organization, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Non-admin edit attempts rejected; existing fields retained; allowed admin changes saved.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -479,6 +509,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Organization"] --> B{"Tenant, role and input valid?"}
@@ -496,6 +527,7 @@ flowchart TD
 **Business requirements / rules:** resolve tenant; request approved AiXIdentity user/role data; present synchronized view. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Users & Roles, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Displays only users in authorised tenant; no local authority for roles/permissions; failure shows non-misleading error.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -505,6 +537,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Users & Roles"] --> B{"Tenant, role and input valid?"}
@@ -522,6 +555,7 @@ flowchart TD
 **Business requirements / rules:** open Add User; check Admin/Manager; enter requested user details and role; submit to approved identity provisioning workflow; synchronize result. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Users & Roles, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Only Admin/Manager may open/submit; other users denied; no duplicate/conflicting account on repeated requests; AiXIdentity controls final access/permission; exact handoff pending Development.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -531,6 +565,7 @@ flowchart TD
 **Dependencies / unresolved:** SET-OD-001, SET-OD-009: identity provisioning and roles.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Users & Roles"] --> B{"Tenant, role and input valid?"}
@@ -548,6 +583,7 @@ flowchart TD
 **Business requirements / rules:** resolve tenant; load corresponding provider settings; edit; save tenant config. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Communication, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Tenant isolation applies to all three configuration panels; setting save affects only current tenant.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -557,6 +593,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Tenant, role and input valid?"}
@@ -574,6 +611,7 @@ flowchart TD
 **Business requirements / rules:** open provider fields; show masked stored secrets; submit updates securely; restrict readback. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Communication, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Secrets are not displayed as plaintext after save; unauthorised users cannot retrieve/modify provider credentials; failed save does not leak secrets.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -583,6 +621,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Tenant, role and input valid?"}
@@ -600,6 +639,7 @@ flowchart TD
 **Business requirements / rules:** resolve tenant; view gateways/fundraising tools; save permitted changes. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Payment, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Provider settings and enable states stay within tenant; cross-tenant access denied.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -609,6 +649,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Payment"] --> B{"Tenant, role and input valid?"}
@@ -626,6 +667,7 @@ flowchart TD
 **Business requirements / rules:** choose provider; supply provider-required fields; validate; enable or show correction. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Payment, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Missing or invalid required configuration cannot be marked operational; exact provider-specific fields require Development confirmation.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -635,6 +677,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Payment"] --> B{"Tenant, role and input valid?"}
@@ -652,6 +695,7 @@ flowchart TD
 **Business requirements / rules:** open API Integration; resolve tenant; view/create permitted resources; validate tenant context. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens API, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: API key and webhook resources are tenant-scoped; cross-tenant access blocked; scopes tied to authorised capabilities.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -661,6 +705,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open API"] --> B{"Tenant, role and input valid?"}
@@ -678,6 +723,7 @@ flowchart TD
 **Business requirements / rules:** QA tests existing actions; classify pass/defect; repair confirmed defects; retest. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens API, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Each existing action has QA evidence; confirmed defects fixed; do not add unspecified new API methods/events.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -687,6 +733,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open API"] --> B{"Tenant, role and input valid?"}
@@ -704,6 +751,7 @@ flowchart TD
 **Business requirements / rules:** resolve role and tenant; show eligible pages/actions; enforce server permissions on changes. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens All, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Denied actions are blocked at server even if UI called directly; access to each Settings section follows authoritative permissions.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -713,6 +761,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open All"] --> B{"Tenant, role and input valid?"}
@@ -730,6 +779,7 @@ flowchart TD
 **Business requirements / rules:** configure provider; validate credentials; run Test SMS; enable upon success; save. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Communication, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Working test reports actual provider outcome; failed credentials/errors do not falsely mark enabled; channel remains tenant-scoped.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -739,6 +789,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Tenant, role and input valid?"}
@@ -756,6 +807,7 @@ flowchart TD
 **Business requirements / rules:** configure provider; validate; attempt approved provider connectivity/delivery; enable upon success. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Communication, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Provider test/delivery must be real, errors surfaced, credential protection applies; exact test/approval rules await technical confirmation.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -765,6 +817,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Communication"] --> B{"Tenant, role and input valid?"}
@@ -782,6 +835,7 @@ flowchart TD
 **Business requirements / rules:** QA identify provider gaps; configure provider; validate credentials; execute supported payment workflow; confirm result. These changes preserve the existing As-Is interface unless an approved requirement says otherwise.
 
 **Acceptance criteria:**
+
 1. **Given** the user opens Payment, **when** their tenant and permissions are resolved, **then** only authorised data/actions are made available.
 2. **Given** the feature is exercised with valid approved inputs, **when** its operation completes, **then** the expected outcome is: Do not claim payment completion from saving settings; only successful verified gateway response qualifies; failures surfaced and no duplicate transaction assumed.
 3. **Given** the operation fails validation, identity handoff, provider connectivity or permission checks, **when** the response is received, **then** users see an accurate failure/pending result, not a false success.
@@ -791,6 +845,7 @@ flowchart TD
 **Dependencies / unresolved:** Development provider/API verification where applicable; no unapproved technical details assumed.
 
 **Mermaid target flow:**
+
 ```mermaid
 flowchart TD
     A["Open Payment"] --> B{"Tenant, role and input valid?"}
@@ -810,12 +865,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -833,12 +890,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -856,12 +915,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -879,12 +940,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -902,12 +965,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -925,12 +990,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -948,12 +1015,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -971,12 +1040,14 @@ flowchart TD
 **Business logic (conceptual only):** Product Owner approves separately; authoritative tenant/access restrictions remain; no delivery state, field validation, integration protocol or rollout timing has been approved.
 
 **Future acceptance criteria, subject to approval:**
+
 1. A product decision explicitly authorises this feature and defines the permitted user, scope and data.
 2. An authorised tenant user can initiate the approved flow and view an accurate result.
 3. Unauthorised/cross-tenant access is denied; failure is clearly reported.
 4. The feature must not change any existing production behaviour before approval.
 
 **Conceptual Mermaid flow:**
+
 ```mermaid
 flowchart TD
     A["Future capability proposed"] --> B{"Approved by Product Owner?"}
@@ -988,7 +1059,7 @@ flowchart TD
 ## 6. Full field, action and screenshot coverage
 
 | Area | Screenshot assets | Included As-Is QA IDs |
-|---|---|---|
+| ---- | ----------------- | --------------------- |
 
 | Organization | ![Settings screenshot 01](screenshots/01_settings_reference.png) ![Settings screenshot 02](screenshots/02_settings_reference.png) ![Settings screenshot 03](screenshots/03_settings_reference.png) | SET-A-01, SET-A-02 |
 
@@ -1003,7 +1074,7 @@ flowchart TD
 ## 7. Cross-document traceability
 
 | Goal | Workflow | Feature | Jira scope |
-|---|---|---|---|
+| ---- | -------- | ------- | ---------- |
 
 | SET-WF-01 | SET-WF-01 | SET-P01 | To-Be |
 

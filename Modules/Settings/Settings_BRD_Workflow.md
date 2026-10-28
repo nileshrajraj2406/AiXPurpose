@@ -4,15 +4,14 @@
 
 ## Document Control
 
-| Field | Value |
-|---|---|
-| Product | AiXPurpose Standalone (multi-tenant) |
-| Capability | Settings: Organization, Users & Roles, Communication, Payment, API Integration |
-| Version | 1.0 |
-| Status | Draft for Product, QA, Development and stakeholder review |
-| Authoritative evidence | `settings Module.docx` screenshots and description; user-approved Q1–Q8/C1–C6 decisions and final AiXIdentity clarification |
-| Documentation convention | Members/Donors BRD structure and revised Profile Jira-story pattern |
-
+| Field                    | Value                                                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Product                  | AiXPurpose Standalone (multi-tenant)                                                                                        |
+| Capability               | Settings: Organization, Users & Roles, Communication, Payment, API Integration                                              |
+| Version                  | 1.0                                                                                                                         |
+| Status                   | Draft for Product, QA, Development and stakeholder review                                                                   |
+| Authoritative evidence   | `settings Module.docx` screenshots and description; user-approved Q1–Q8/C1–C6 decisions and final AiXIdentity clarification |
+| Documentation convention | Members/Donors BRD structure and revised Profile Jira-story pattern                                                         |
 
 ## Overview
 
@@ -20,8 +19,8 @@
 
 **Authority rule:** AiXIdentity is authoritative for authentication/access, roles and permissions. AiXPurpose provides the Users & Roles view and the Admin/Manager Add User interface. The exact provisioning API, invitation activation, identity synchronization cadence and permitted Manager role-selection boundaries must be verified with Development/AiXIdentity, not assumed. Earlier notes call the identity source AiXHub; the user's latest clarification names AiXIdentity for access and permissions. Their interface/ownership relationship is an open architecture point, not an invented equivalence.
 
-
 ## Contents
+
 1. Actor/ownership rules
 2. End-to-end As-Is and To-Be
 3. Existing workflow inventory
@@ -33,7 +32,7 @@
 ## 1. Actor and responsibility rules
 
 | Actor | Permitted responsibility |
-|---|---|
+| ----- | ------------------------ |
 
 | Organisation administrator | Modify authorised organisation settings; subject to identity permissions. |
 
@@ -85,7 +84,7 @@ flowchart TD
 ## 3. As-Is inventory – retain with QA evidence
 
 | QA ID | Existing flow | Steps / verification |
-|---|---|---|
+| ----- | ------------- | -------------------- |
 
 | SET-A-01 | Organization basic information | open organisation settings; inspect basic information; update permitted details; save; User can see existing fields and Save Organization Settings; QA confirms save persistence, field handling, and access restrictions. |
 
@@ -468,7 +467,7 @@ flowchart TD
 ## 7. Screenshot mapping
 
 | Section | Source screenshot(s) |
-|---|---|
+| ------- | -------------------- |
 
 | Organization | ![Settings screenshot 01](screenshots/01_settings_reference.png) ![Settings screenshot 02](screenshots/02_settings_reference.png) ![Settings screenshot 03](screenshots/03_settings_reference.png) |
 
@@ -483,7 +482,7 @@ flowchart TD
 ## 8. Goals-to-workflow-to-feature traceability
 
 | Goal | Workflow | To-Be Feature |
-|---|---|---|
+| ---- | -------- | ------------- |
 
 | SET-WF-01 | SET-WF-01 | SET-P01 |
 

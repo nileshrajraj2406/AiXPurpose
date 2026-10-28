@@ -15,7 +15,6 @@ Features described in a proposed standalone baseline enhancement document are fl
 
 30 feature specifications, 30 workflow diagrams and 30 corresponding catalogue diagrams.
 
-
 ## UPDATED v1.1 — Campaign and Communication Template bulk import
 
 - **CC-031:** Campaign structured import template, safe native create/update, before/after preview and detailed import results.
